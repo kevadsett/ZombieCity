@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b22a952-b111-4543-b81b-d7aacf173999" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Unity/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AITest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AITest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ZombieAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ZombieAI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ZombieSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ZombieSettings.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,44 +16,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ZombieAI.cs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ZombieAI.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/ZombieAI.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="885">
-              <caret line="59" column="4" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
+            <state relative-caret-position="375">
+              <caret line="25" column="70" selection-start-line="25" selection-start-column="70" selection-end-line="25" selection-end-column="70" />
               <folding>
-                <marker date="1527963287238" expanded="true" signature="27:99" ph="..." />
-                <marker date="1527963287238" expanded="true" signature="186:1412" ph="{...}" />
-                <marker date="1527963287238" expanded="true" signature="379:503" ph="{...}" />
-                <marker date="1527963287238" expanded="true" signature="558:1193" ph="{...}" />
-                <marker date="1527963287238" expanded="true" signature="692:721" ph="{...}" />
-                <marker date="1527963287238" expanded="true" signature="770:800" ph="{...}" />
-                <marker date="1527963287238" expanded="true" signature="824:1188" ph="{...}" />
-                <marker date="1527963287238" expanded="true" signature="1232:1402" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WaterBaseEditor.cs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/Standard Assets/Editor/Water/Water4/WaterBaseEditor.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <marker date="1520267643000" expanded="false" signature="6:37" ph="..." />
-                <marker date="1520267643000" expanded="true" signature="75:9791" ph="{...}" />
-                <marker date="1520267643000" expanded="true" signature="157:9789" ph="{...}" />
-                <marker date="1520267643000" expanded="true" signature="504:765" ph="{...}" />
-                <marker date="1520267643000" expanded="true" signature="812:9782" ph="{...}" />
-                <marker date="1520267643000" expanded="true" signature="1340:1689" ph="{...}" />
-                <marker date="1520267643000" expanded="true" signature="4537:4884" ph="/* firstTiling.x = EditorGUILayout.FloatField(&quot;1st Tiling U&quot;, firstTiling.x); ... */" />
-                <marker date="1520267643000" expanded="true" signature="5072:5455" ph="/* firstDirection.x = EditorGUILayout.FloatField(&quot;1st Animation U&quot;, firstDirection.x); ... */" />
-                <marker date="1520267643000" expanded="true" signature="7469:8084" ph="{...}" />
-                <marker date="1520267643000" expanded="true" signature="7547:7845" ph="{...}" />
-                <marker date="1520267643000" expanded="true" signature="8101:8526" ph="{...}" />
-                <marker date="1520267643000" expanded="true" signature="8713:9197" ph="{...}" />
-                <marker date="1520267643000" expanded="true" signature="9291:9725" ph="{...}" />
+                <marker date="1527968986501" expanded="true" signature="27:116" ph="..." />
+                <marker date="1527968986501" expanded="true" signature="203:2343" ph="{...}" />
+                <marker date="1527968986501" expanded="true" signature="463:586" ph="{...}" />
+                <marker date="1527968986501" expanded="true" signature="641:930" ph="{...}" />
+                <marker date="1527968986501" expanded="true" signature="775:804" ph="{...}" />
+                <marker date="1527968986501" expanded="true" signature="853:883" ph="{...}" />
+                <marker date="1527968986501" expanded="true" signature="901:927" ph="{...}" />
+                <marker date="1527968986501" expanded="true" signature="959:1840" ph="{...}" />
+                <marker date="1527968986501" expanded="true" signature="1147:1220" ph="{...}" />
+                <marker date="1527968986501" expanded="true" signature="1227:1480" ph="{...}" />
+                <marker date="1527968986501" expanded="true" signature="1297:1369" ph="{...}" />
+                <marker date="1527968986501" expanded="true" signature="1377:1476" ph="{...}" />
+                <marker date="1527968986501" expanded="true" signature="1803:1837" ph="{...}" />
+                <marker date="1527968986501" expanded="true" signature="1878:2224" ph="{...}" />
+                <marker date="1527968986501" expanded="true" signature="2254:2334" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -63,11 +45,11 @@
       <file leaf-file-name="ZombieSettings.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/ZombieSettings.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="5" column="27" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="27" />
+            <state relative-caret-position="105">
+              <caret line="9" column="30" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="30" />
               <folding>
-                <marker date="1527962998148" expanded="false" signature="6:78" ph="..." />
-                <marker date="1527962998148" expanded="true" signature="205:298" ph="{...}" />
+                <marker date="1527966177105" expanded="false" signature="6:78" ph="..." />
+                <marker date="1527966177105" expanded="true" signature="205:331" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -81,7 +63,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ZombieSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ZombieAI.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Editor/Water/Water4/WaterBaseEditor.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -165,12 +146,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1527961736275</updated>
-      <workItem from="1527961743176" duration="1793000" />
+      <workItem from="1527961743176" duration="4725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1793000" />
+    <option name="totallyTimeSpent" value="4725000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -218,52 +199,44 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/Standard Assets/Editor/Water/Water4/WaterBaseEditor.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/ZombieSettings.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="27" />
+        <state relative-caret-position="105">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="30" />
           <folding>
-            <marker date="1527962998148" expanded="false" signature="6:78" ph="..." />
-            <marker date="1527962998148" expanded="true" signature="205:298" ph="{...}" />
+            <marker date="1527966177105" expanded="false" signature="6:78" ph="..." />
+            <marker date="1527966177105" expanded="true" signature="205:331" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/ZombieAI.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="59" column="4" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
+        <state relative-caret-position="375">
+          <caret line="25" column="70" selection-start-line="25" selection-start-column="70" selection-end-line="25" selection-end-column="70" />
           <folding>
-            <marker date="1527963287238" expanded="true" signature="27:99" ph="..." />
-            <marker date="1527963287238" expanded="true" signature="186:1412" ph="{...}" />
-            <marker date="1527963287238" expanded="true" signature="379:503" ph="{...}" />
-            <marker date="1527963287238" expanded="true" signature="558:1193" ph="{...}" />
-            <marker date="1527963287238" expanded="true" signature="692:721" ph="{...}" />
-            <marker date="1527963287238" expanded="true" signature="770:800" ph="{...}" />
-            <marker date="1527963287238" expanded="true" signature="824:1188" ph="{...}" />
-            <marker date="1527963287238" expanded="true" signature="1232:1402" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Standard Assets/Editor/Water/Water4/WaterBaseEditor.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <marker date="1520267643000" expanded="false" signature="6:37" ph="..." />
-            <marker date="1520267643000" expanded="true" signature="75:9791" ph="{...}" />
-            <marker date="1520267643000" expanded="true" signature="157:9789" ph="{...}" />
-            <marker date="1520267643000" expanded="true" signature="504:765" ph="{...}" />
-            <marker date="1520267643000" expanded="true" signature="812:9782" ph="{...}" />
-            <marker date="1520267643000" expanded="true" signature="1340:1689" ph="{...}" />
-            <marker date="1520267643000" expanded="true" signature="4537:4884" ph="/* firstTiling.x = EditorGUILayout.FloatField(&quot;1st Tiling U&quot;, firstTiling.x); ... */" />
-            <marker date="1520267643000" expanded="true" signature="5072:5455" ph="/* firstDirection.x = EditorGUILayout.FloatField(&quot;1st Animation U&quot;, firstDirection.x); ... */" />
-            <marker date="1520267643000" expanded="true" signature="7469:8084" ph="{...}" />
-            <marker date="1520267643000" expanded="true" signature="7547:7845" ph="{...}" />
-            <marker date="1520267643000" expanded="true" signature="8101:8526" ph="{...}" />
-            <marker date="1520267643000" expanded="true" signature="8713:9197" ph="{...}" />
-            <marker date="1520267643000" expanded="true" signature="9291:9725" ph="{...}" />
+            <marker date="1527968986501" expanded="true" signature="27:116" ph="..." />
+            <marker date="1527968986501" expanded="true" signature="203:2343" ph="{...}" />
+            <marker date="1527968986501" expanded="true" signature="463:586" ph="{...}" />
+            <marker date="1527968986501" expanded="true" signature="641:930" ph="{...}" />
+            <marker date="1527968986501" expanded="true" signature="775:804" ph="{...}" />
+            <marker date="1527968986501" expanded="true" signature="853:883" ph="{...}" />
+            <marker date="1527968986501" expanded="true" signature="901:927" ph="{...}" />
+            <marker date="1527968986501" expanded="true" signature="959:1840" ph="{...}" />
+            <marker date="1527968986501" expanded="true" signature="1147:1220" ph="{...}" />
+            <marker date="1527968986501" expanded="true" signature="1227:1480" ph="{...}" />
+            <marker date="1527968986501" expanded="true" signature="1297:1369" ph="{...}" />
+            <marker date="1527968986501" expanded="true" signature="1377:1476" ph="{...}" />
+            <marker date="1527968986501" expanded="true" signature="1803:1837" ph="{...}" />
+            <marker date="1527968986501" expanded="true" signature="1878:2224" ph="{...}" />
+            <marker date="1527968986501" expanded="true" signature="2254:2334" ph="{...}" />
           </folding>
         </state>
       </provider>

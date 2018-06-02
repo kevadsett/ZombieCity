@@ -7,4 +7,5 @@ public class ZombieSettings : ScriptableObject
 {
 	public float sightDistance=10,lostDistance=30;
 	public float chaseSpeed=2,turnSpeed=30;
+	public float evadeDistance = 2;
 }

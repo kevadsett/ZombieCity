@@ -7,6 +7,8 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets/Scripts" t="Include">
+        <e p="CameraMouseLook.cs" t="Include" />
+        <e p="CharacterController.cs" t="Include" />
         <e p="ZombieAI.cs" t="Include" />
         <e p="ZombieSettings.cs" t="Include" />
       </e>
@@ -64,15 +66,6 @@
         <e p="Editor" t="Include">
           <e p="CrossPlatformInput" t="Include">
             <e p="CrossPlatformInputInitialize.cs" t="Include" />
-          </e>
-          <e p="Water" t="Include">
-            <e p="Water4" t="Include">
-              <e p="GerstnerDisplaceEditor.cs" t="Include" />
-              <e p="PlanarReflectionEditor.cs" t="Include" />
-              <e p="SpecularLightingEditor.cs" t="Include" />
-              <e p="WaterBaseEditor.cs" t="Include" />
-              <e p="WaterEditorUtility.cs" t="Include" />
-            </e>
           </e>
         </e>
         <e p="Effects" t="Include">
