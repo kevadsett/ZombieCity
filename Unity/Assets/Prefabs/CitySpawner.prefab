@@ -51,6 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73e34ff910184bfd8cb601c3a530b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zombiePrefab: {fileID: 114586031838695888, guid: a2bc6c04c354d429f9d60658d1556965,
+    type: 2}
   zones:
   - name: Centre
     uiColour: {r: 0.27205884, g: 0.5481745, b: 1, a: 1}
