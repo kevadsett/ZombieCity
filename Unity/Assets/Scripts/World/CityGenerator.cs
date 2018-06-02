@@ -16,11 +16,15 @@ public class CityGenerator : MonoBehaviour {
 
 	[SerializeField] List<Zone> zones;
 
+	List<Building> buildingsSpawned;
+
 	void Awake () {
 		Generate ();
 	}
 
 	void Generate () {
+		buildingsSpawned = new List<Building> ();
+
 		int nZones = zones.Count;
 		int startRadius = 0;
 		int endRadius = 0;
@@ -29,6 +33,8 @@ public class CityGenerator : MonoBehaviour {
 			endRadius += zone.radius;
 
 			for (int b = 0; b < zone.numBuildings; b++) {
+				Building toInstantiate = zone.buildings[Random.Range (0, zone.buildings.Count)];
+
 				bool isAbleToBuild = false;
 				Vector3 buildPos = Vector3.zero;
 				while (isAbleToBuild == false) {
@@ -37,18 +43,35 @@ public class CityGenerator : MonoBehaviour {
 
 					buildPos = Quaternion.Euler (0f, angle, 0f) * new Vector3 (0f, 0f, radialDist);
 
-					// TODO: don't spawn stuff too close together, ta
 					isAbleToBuild = true;
+					int attempts = 256;
+					for (int c = 0; c < buildingsSpawned.Count; c++) {
+						Building testBiru = buildingsSpawned[c];
+						Vector3 testPos = testBiru.transform.localPosition;
+
+						float testRadius = testBiru.clearRadius + toInstantiate.clearRadius;
+						float distBetween = Vector3.Distance (testPos, buildPos);
+
+						// give up and place anyway after too many attempts
+						if (distBetween < testRadius && attempts >= 0) {
+							isAbleToBuild = false;
+							break;
+						}
+
+						attempts--;
+					}
 				}
 
-				CreateBuilding (buildPos, zone);
+				if (isAbleToBuild) {
+					CreateBuilding (buildPos, toInstantiate, zone);
+				}
 			}
 
 			startRadius += zone.radius;
 		}
 	}
 
-	void CreateBuilding (Vector3 position, Zone zone) {
+	void CreateBuilding (Vector3 position, Building toInstantiate, Zone zone) {
 		if (zone.buildings.Count == 0) {
 			return; // abort abort
 		}
@@ -56,8 +79,7 @@ public class CityGenerator : MonoBehaviour {
 		float facing = Random.Range (0f, 360f);
 		facing = facing - facing % zone.angleIncrement;
 			
-		Building toInstantiate = zone.buildings[Random.Range (0, zone.buildings.Count)];
-		Instantiate (toInstantiate, position, Quaternion.Euler (0f, facing, 0f));
+		buildingsSpawned.Add (Instantiate (toInstantiate, position, Quaternion.Euler (0f, facing, 0f), transform));
 	}
 
 	void OnDrawGizmos () {
