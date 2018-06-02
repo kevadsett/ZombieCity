@@ -15,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BulletSpawner.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BulletSpawner.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/BulletSpawner.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+            <state relative-caret-position="264">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <marker date="1527975666000" expanded="true" signature="6:78" ph="..." />
                 <marker date="1527975666000" expanded="true" signature="122:1016" ph="{...}" />
@@ -27,6 +27,50 @@
                 <marker date="1527975666000" expanded="true" signature="494:1014" ph="{...}" />
                 <marker date="1527975666000" expanded="true" signature="595:614" ph="{...}" />
                 <marker date="1527975666000" expanded="true" signature="705:1011" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FirstPersonController.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="215" column="6" selection-start-line="215" selection-start-column="6" selection-end-line="215" selection-end-column="6" />
+              <folding>
+                <marker date="1527975794000" expanded="false" signature="6:148" ph="..." />
+                <marker date="1527975794000" expanded="true" signature="202:9549" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="357:9547" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="2199:2707" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="2782:3520" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="2922:3024" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="3100:3289" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="3378:3440" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="3562:3706" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="3743:5237" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="4577:4881" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="4673:4867" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="4898:5012" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="5276:5376" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="5430:5943" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="5543:5745" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="5791:5843" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="5986:6575" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="6047:6099" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="6112:6208" ph="/* pick &amp; play a random footstep sound from the array, ... */" />
+                <marker date="1527975794000" expanded="true" signature="6632:7554" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="6712:6764" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="6862:7276" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="7293:7478" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="7603:8872" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="7871:8080" ph="/* On standalone builds, walk/run speed is modified by a key press. ... */" />
+                <marker date="1527975794000" expanded="true" signature="8376:8441" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="8455:8591" ph="/* handle speed change to give an fov kick ... */" />
+                <marker date="1527975794000" expanded="true" signature="8701:8862" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="8908:8998" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="9072:9541" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="9272:9324" ph="{...}" />
+                <marker date="1527975794000" expanded="true" signature="9375:9427" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -123,11 +167,17 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>run</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/HealthDisplay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WeaponSelector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/90335278-A486-40ED-A825-F386CFA02230/d7/dbe5bed3/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BulletSpawner.cs" root0="FORCE_HIGHLIGHTING" />
@@ -152,6 +202,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/WeaponSelector.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/WeaponStorage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BulletSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs" />
       </list>
     </option>
   </component>
@@ -186,6 +237,32 @@
             <path>
               <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
               <item name="Unity" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Unity" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Unity" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Unity" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Unity" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
               <item name="" type="1045f7f1:UnityExplorerNode" />
             </path>
           </expand>
@@ -237,7 +314,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8602000" />
+    <option name="totallyTimeSpent" value="8712000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -446,8 +523,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/BulletSpawner.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+        <state relative-caret-position="264">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <marker date="1527975666000" expanded="true" signature="6:78" ph="..." />
             <marker date="1527975666000" expanded="true" signature="122:1016" ph="{...}" />
@@ -455,6 +532,48 @@
             <marker date="1527975666000" expanded="true" signature="494:1014" ph="{...}" />
             <marker date="1527975666000" expanded="true" signature="595:614" ph="{...}" />
             <marker date="1527975666000" expanded="true" signature="705:1011" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="215" column="6" selection-start-line="215" selection-start-column="6" selection-end-line="215" selection-end-column="6" />
+          <folding>
+            <marker date="1527975794000" expanded="false" signature="6:148" ph="..." />
+            <marker date="1527975794000" expanded="true" signature="202:9549" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="357:9547" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="2199:2707" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="2782:3520" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="2922:3024" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="3100:3289" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="3378:3440" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="3562:3706" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="3743:5237" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="4577:4881" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="4673:4867" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="4898:5012" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="5276:5376" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="5430:5943" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="5543:5745" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="5791:5843" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="5986:6575" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="6047:6099" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="6112:6208" ph="/* pick &amp; play a random footstep sound from the array, ... */" />
+            <marker date="1527975794000" expanded="true" signature="6632:7554" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="6712:6764" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="6862:7276" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="7293:7478" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="7603:8872" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="7871:8080" ph="/* On standalone builds, walk/run speed is modified by a key press. ... */" />
+            <marker date="1527975794000" expanded="true" signature="8376:8441" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="8455:8591" ph="/* handle speed change to give an fov kick ... */" />
+            <marker date="1527975794000" expanded="true" signature="8701:8862" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="8908:8998" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="9072:9541" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="9272:9324" ph="{...}" />
+            <marker date="1527975794000" expanded="true" signature="9375:9427" ph="{...}" />
           </folding>
         </state>
       </provider>
