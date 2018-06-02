@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngineInternal.Input;
 
 public class WeaponStorage : MonoBehaviour
 {
-	public List<Weapon> CollectedWeapons;
+	public static WeaponStorage Instance;
+	public List<Weapon> CollectedWeapons = new List<Weapon>();
+	public List<int> Ammo = new List<int>();
 
-	// TODO add weapons when you find them
+	void Start()
+	{
+		Instance = this;
+	}
 }

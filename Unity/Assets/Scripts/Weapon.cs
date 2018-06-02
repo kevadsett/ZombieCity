@@ -5,4 +5,6 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
 	public WeaponSettings Settings;
+
+	public int WeaponIndex;
 }

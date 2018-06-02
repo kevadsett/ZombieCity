@@ -19,7 +19,7 @@ public class WeaponSelector : MonoBehaviour
 
 	void Update ()
 	{
-		if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+		if (Input.GetKeyDown(KeyCode.LeftShift))
 		{
 			var prevWeaponIndex = selectedWeaponIndex;
 			selectedWeaponIndex = (selectedWeaponIndex + 1) % weaponStorage.CollectedWeapons.Count;
@@ -28,7 +28,7 @@ public class WeaponSelector : MonoBehaviour
 				ChangeWeapon();
 			}
 		}
-		else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+		else if (Input.GetKeyDown(KeyCode.RightShift))
 		{
 			var prevWeaponIndex = selectedWeaponIndex;
 			selectedWeaponIndex = (weaponStorage.CollectedWeapons.Count + selectedWeaponIndex - 1) % weaponStorage.CollectedWeapons.Count;
@@ -52,5 +52,7 @@ public class WeaponSelector : MonoBehaviour
 			nextWeapon.Settings.WeaponPrefab,
 			transform
 		);
+
+		currentWeapon.GetComponentInChildren<BulletSpawner>().WeaponIndex = selectedWeaponIndex;
 	}
 }

@@ -9,6 +9,8 @@ public class BulletSpawner : MonoBehaviour
 	public int BulletsToSpawn = 1;
 	public float AngleSpread = 10f;
 
+	public int WeaponIndex;
+
 	private Transform playerTransform;
 	private Transform cameraTransform;
 
@@ -20,22 +22,28 @@ public class BulletSpawner : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetMouseButtonDown(0))
-		{
-			for (var i = 0; i < BulletsToSpawn; i++)
-			{
-				var rotation = Quaternion.Euler(
-					cameraTransform.rotation.eulerAngles.x + Random.Range(-AngleSpread, AngleSpread),
-					playerTransform.rotation.eulerAngles.y + Random.Range(-AngleSpread, AngleSpread),
-					0
-				);
+		if (!Input.GetMouseButtonDown(0)) return;
 
-				Instantiate(
-					BulletPrefab,
-					transform.position,
-					rotation
-				);
-			}
+		if (WeaponStorage.Instance.Ammo[WeaponIndex] == 0)
+		{
+			return;
+		}
+
+		WeaponStorage.Instance.Ammo[WeaponIndex]--;
+		Debug.Log(WeaponStorage.Instance.Ammo[WeaponIndex]);
+		for (var i = 0; i < BulletsToSpawn; i++)
+		{
+			var rotation = Quaternion.Euler(
+				cameraTransform.rotation.eulerAngles.x + Random.Range(-AngleSpread, AngleSpread),
+				playerTransform.rotation.eulerAngles.y + Random.Range(-AngleSpread, AngleSpread),
+				0
+			);
+
+			Instantiate(
+				BulletPrefab,
+				transform.position,
+				rotation
+			);
 		}
 	}
 }
