@@ -280,3 +280,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clearRadius: 6
+  minScale: 0.9
+  maxScale: 1.1

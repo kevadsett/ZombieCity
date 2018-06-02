@@ -5,6 +5,8 @@ using UnityEngine;
 public class Building : MonoBehaviour {
 
 	public int clearRadius;
+	public float minScale;
+	public float maxScale;
 
 	void OnDrawGizmos () {
 		Gizmos.color = Color.grey;

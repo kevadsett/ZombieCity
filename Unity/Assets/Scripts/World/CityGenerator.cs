@@ -78,8 +78,11 @@ public class CityGenerator : MonoBehaviour {
 
 		float facing = Random.Range (0f, 360f);
 		facing = facing - facing % zone.angleIncrement;
-			
-		buildingsSpawned.Add (Instantiate (toInstantiate, position, Quaternion.Euler (0f, facing, 0f), transform));
+
+		Building instantiated = Instantiate (toInstantiate, position, Quaternion.Euler (0f, facing, 0f), transform);
+		instantiated.transform.localScale = Vector3.one * Random.Range (instantiated.minScale, instantiated.maxScale);
+
+		buildingsSpawned.Add (instantiated);
 	}
 
 	void OnDrawGizmos () {
