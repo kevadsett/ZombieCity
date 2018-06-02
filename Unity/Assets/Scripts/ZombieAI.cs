@@ -12,7 +12,8 @@ public class ZombieAI : MonoBehaviour
 	[SerializeField] private ZombieSettings settings;
 	
 	
-	private bool isChasing;
+	private bool isChasing, isAttacking;
+	private float attackTimer;
 	private Transform player;
 	private CharacterController control;
 
@@ -34,16 +35,29 @@ public class ZombieAI : MonoBehaviour
 		if (distanceToPlayer < settings.sightDistance)
 		{
 			isChasing = true;
-		}
-
-		if (distanceToPlayer > settings.lostDistance)
+		} 
+		else if (distanceToPlayer > settings.lostDistance)
 		{
 			isChasing = false;
+		}
+
+		if (distanceToPlayer <= settings.attackRange)
+		{
+			isAttacking = true;
+		}
+		else if (distanceToPlayer > settings.attackRange * 2)
+		{
+			isAttacking = false;
+			attackTimer = settings.attackTime;
 		}
 
 		if (isChasing)
 		{
 			ChasePlayer();
+		}
+		if (isAttacking)
+		{
+			PrepareAttack();
 		}
 	}
 
@@ -80,6 +94,36 @@ public class ZombieAI : MonoBehaviour
 		{
 			debugText = "hitwall";
 		}
+	}
+
+	private void PrepareAttack()
+	{
+		// force not over player
+		Vector3 relPos = transform.position - player.position;
+		float distanceToPlayer = relPos.magnitude;
+		if (distanceToPlayer < settings.attackRange)
+		{
+			relPos = relPos.normalized * settings.attackRange;
+			transform.position = player.position + relPos;
+		}
+
+		attackTimer -= Time.deltaTime;
+		debugText = string.Format("Attack {0:0.00}", attackTimer);
+		if (attackTimer <= 0)
+		{
+			attackTimer = settings.attackTime;
+			AttackPlayer();
+		}
+	}
+	private void AttackPlayer()
+	{
+		Vector3 direction = (player.position - transform.position).normalized;
+		// zombie lunges forward & knocks player backwards
+		var pmove = player.GetComponent<CharacterController>().SimpleMove(direction * settings.playerKnockback);
+		var zmove = control.SimpleMove(direction * settings.zombieKnockback);
+		Debug.Log(string.Format("knockback {0} {1}", pmove, zmove));
+		
+		player.GetComponent<PlayerHealth>().Damage(transform.position);	
 	}
 
 #if DEBUG_TEST

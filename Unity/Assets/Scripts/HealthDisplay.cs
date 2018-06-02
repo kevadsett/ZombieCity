@@ -9,6 +9,7 @@ public class HealthDisplay : MonoBehaviour
 	private PlayerHealth health;
 	private int lastHealth;
 	private Image[] images;
+	
 
 	// Use this for initialization
 	void Start ()
