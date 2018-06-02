@@ -30,7 +30,7 @@ public class BulletSpawner : MonoBehaviour
 		}
 
 		WeaponStorage.Instance.Ammo[WeaponIndex]--;
-		Debug.Log(WeaponStorage.Instance.Ammo[WeaponIndex]);
+
 		for (var i = 0; i < BulletsToSpawn; i++)
 		{
 			var rotation = Quaternion.Euler(
