@@ -1,5 +1,4 @@
-﻿#define DEBUG_TEST
-
+﻿//#define DEBUG_TEST
 
 using System.Collections;
 using System.Collections.Generic;
@@ -24,8 +23,7 @@ public class ZombieAI : MonoBehaviour
 	void Start ()
 	{
 		control = GetComponent<CharacterController>();
-		player = GameObject.FindGameObjectWithTag("Player").transform;		
-
+		player = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 	
 	// Update is called once per frame
@@ -54,6 +52,10 @@ public class ZombieAI : MonoBehaviour
 		if (isChasing)
 		{
 			ChasePlayer();
+		}
+		else
+		{
+			control.SimpleMove(Vector3.zero);	// move nothing: it will drop them
 		}
 		if (isAttacking)
 		{
