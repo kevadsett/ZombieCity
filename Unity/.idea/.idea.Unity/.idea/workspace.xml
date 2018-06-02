@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2b22a952-b111-4543-b81b-d7aacf173999" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AITest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AITest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ZombieAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ZombieAI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ZombieSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ZombieSettings.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ZombieAI.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ZombieAI.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/ZombieAI.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="70" selection-start-line="25" selection-start-column="70" selection-end-line="25" selection-end-column="70" />
+            <state relative-caret-position="15">
+              <caret line="1" selection-end-line="1" />
               <folding>
                 <marker date="1527968986501" expanded="true" signature="27:116" ph="..." />
                 <marker date="1527968986501" expanded="true" signature="203:2343" ph="{...}" />
@@ -42,14 +41,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ZombieSettings.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/ZombieSettings.cs">
+      <file leaf-file-name="PlayerHealth.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerHealth.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="9" column="30" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="30" />
+            <state>
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
               <folding>
-                <marker date="1527966177105" expanded="false" signature="6:78" ph="..." />
-                <marker date="1527966177105" expanded="true" signature="205:331" ph="{...}" />
+                <marker date="1527970761212" expanded="false" signature="27:99" ph="..." />
+                <marker date="1527970761212" expanded="true" signature="142:542" ph="{...}" />
+                <marker date="1527970761212" expanded="true" signature="272:305" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HealthDisplay.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/HealthDisplay.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+              <folding>
+                <marker date="1527970589160" expanded="true" signature="6:128" ph="..." />
+                <marker date="1527970589160" expanded="true" signature="172:696" ph="{...}" />
+                <marker date="1527970589160" expanded="true" signature="302:424" ph="{...}" />
+                <marker date="1527970589160" expanded="true" signature="479:544" ph="{...}" />
+                <marker date="1527970589160" expanded="true" signature="517:541" ph="{...}" />
+                <marker date="1527970589160" expanded="true" signature="563:694" ph="{...}" />
+                <marker date="1527970589160" expanded="true" signature="608:660" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -61,7 +79,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ZombieSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerHealth.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HealthDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ZombieAI.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -69,6 +88,9 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/ZombieSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ZombieAI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Settings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/HealthDisplay.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerHealth.cs" />
       </list>
     </option>
   </component>
@@ -146,12 +168,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1527961736275</updated>
-      <workItem from="1527961743176" duration="4725000" />
+      <workItem from="1527961743176" duration="6208000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4725000" />
+    <option name="totallyTimeSpent" value="6208000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -208,19 +230,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/ZombieSettings.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="30" />
-          <folding>
-            <marker date="1527966177105" expanded="false" signature="6:78" ph="..." />
-            <marker date="1527966177105" expanded="true" signature="205:331" ph="{...}" />
-          </folding>
+        <state relative-caret-position="135">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Settings.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/ZombieAI.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="70" selection-start-line="25" selection-start-column="70" selection-end-line="25" selection-end-column="70" />
+        <state relative-caret-position="15">
+          <caret line="1" selection-end-line="1" />
           <folding>
             <marker date="1527968986501" expanded="true" signature="27:116" ph="..." />
             <marker date="1527968986501" expanded="true" signature="203:2343" ph="{...}" />
@@ -237,6 +262,34 @@
             <marker date="1527968986501" expanded="true" signature="1803:1837" ph="{...}" />
             <marker date="1527968986501" expanded="true" signature="1878:2224" ph="{...}" />
             <marker date="1527968986501" expanded="true" signature="2254:2334" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/HealthDisplay.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+          <folding>
+            <marker date="1527970589160" expanded="true" signature="6:128" ph="..." />
+            <marker date="1527970589160" expanded="true" signature="172:696" ph="{...}" />
+            <marker date="1527970589160" expanded="true" signature="302:424" ph="{...}" />
+            <marker date="1527970589160" expanded="true" signature="479:544" ph="{...}" />
+            <marker date="1527970589160" expanded="true" signature="517:541" ph="{...}" />
+            <marker date="1527970589160" expanded="true" signature="563:694" ph="{...}" />
+            <marker date="1527970589160" expanded="true" signature="608:660" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerHealth.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
+          <folding>
+            <marker date="1527970761212" expanded="false" signature="27:99" ph="..." />
+            <marker date="1527970761212" expanded="true" signature="142:542" ph="{...}" />
+            <marker date="1527970761212" expanded="true" signature="272:305" ph="{...}" />
           </folding>
         </state>
       </provider>

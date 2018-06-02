@@ -9,6 +9,12 @@
       <e p="Assets/Scripts" t="Include">
         <e p="CameraMouseLook.cs" t="Include" />
         <e p="CharacterController.cs" t="Include" />
+        <e p="HealthDisplay.cs" t="Include" />
+        <e p="PlayerHealth.cs" t="Include" />
+        <e p="World" t="Include">
+          <e p="Building.cs" t="Include" />
+          <e p="CityGenerator.cs" t="Include" />
+        </e>
         <e p="ZombieAI.cs" t="Include" />
         <e p="ZombieSettings.cs" t="Include" />
       </e>
