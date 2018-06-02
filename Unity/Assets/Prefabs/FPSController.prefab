@@ -257,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectedWeapons:
   - {fileID: 114720571597547678, guid: a5a244dcf22394581b57ea51a9758a28, type: 2}
+  - {fileID: 114720571597547678, guid: e5983337e1723452dbcc698bab5f6825, type: 2}
 --- !u!114 &114721207288030136
 MonoBehaviour:
   m_ObjectHideFlags: 1

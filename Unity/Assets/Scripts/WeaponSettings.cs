@@ -5,4 +5,9 @@ public class WeaponSettings : ScriptableObject
 {
 	public GameObject WeaponPrefab;
 	public int DefaultAmmo;
+
+	public override string ToString()
+	{
+		return name;
+	}
 }
