@@ -30,6 +30,7 @@ public class ZombieAI : MonoBehaviour
 	private string debugText = "";
 
 	private float deathStartTime;
+	private bool isNight;
 
 	private static int Id;
 	
@@ -41,6 +42,7 @@ public class ZombieAI : MonoBehaviour
 		myState = State.Roaming;
 
 		BulletRaycaster.OnEnemyHit += BulletRaycasterOnOnEnemyHit;
+		DayNightController.OnDayChanged += OnDayChanged;
 
 		name = "Zombo_" + Id;
 		Id++;
@@ -105,7 +107,9 @@ public class ZombieAI : MonoBehaviour
 	{
 		control.SimpleMove(Vector3.zero);	// move nothing: it will drop them
 
-		if (distanceToPlayer < settings.sightDistance)
+		var sightDist = isNight ? settings.nightSightDistance : settings.sightDistance;
+		
+		if (distanceToPlayer < sightDist)
 		{
 			myState = State.Chasing;
 			AudioPlayer.PlaySound("ZombieChase",transform.position);
@@ -178,10 +182,11 @@ public class ZombieAI : MonoBehaviour
 
 		targetDir.y = 0;
 		// move and turn
+		float speed = isNight ? settings.nightSpeed : settings.chaseSpeed;
 		float step = Mathf.Deg2Rad * settings.turnSpeed * Time.deltaTime;
 		Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
 		transform.rotation = Quaternion.LookRotation(newDir);
-		if (control.SimpleMove(transform.forward * settings.chaseSpeed) == false)
+		if (control.SimpleMove(transform.forward * speed) == false)
 		{
 			debugText = "hitwall";
 		}
@@ -224,6 +229,11 @@ public class ZombieAI : MonoBehaviour
 		player.GetComponent<PlayerHealth>().Damage(transform.position);	
 	}
 
+	void OnDayChanged(int day, bool isNight)
+	{
+		this.isNight = isNight;
+	}
+
 #if DEBUG_TEST
 	private void OnGUI()
 	{
@@ -239,5 +249,5 @@ public class ZombieAI : MonoBehaviour
 		Gizmos.DrawWireSphere(lastKnownPos, 2);
 	}
 #endif
-}
+	}
 
