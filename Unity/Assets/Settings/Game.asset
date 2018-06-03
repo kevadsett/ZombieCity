@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vignetteTime: 2
   dayDuration: 600
-  dayColour: {r: 0, g: 1, b: 1, a: 1}
+  dayColour: {r: 0.5752595, g: 0.8613025, b: 0.97794116, a: 1}
   nightColour: {r: 0, g: 0, b: 0, a: 1}
-  dayAmbient: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  nightAmbient: {r: 0.53676474, g: 0.53676474, b: 0.53676474, a: 1}
+  dayAmbient: {r: 0.6397059, g: 0.60778546, b: 0.58326125, a: 1}
+  nightAmbient: {r: 0, g: 0, b: 0, a: 1}
