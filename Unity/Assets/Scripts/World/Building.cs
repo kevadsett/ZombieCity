@@ -21,17 +21,30 @@ public class Building : MonoBehaviour {
 		public int chanceMultiplier;
 		public int minQuantity;
 		public int maxQuantity;
+		public int numGuardZombies;
 	}
 
 	[SerializeField] List<LootItem> lootItems;
 
-	public void LootItems () {
+	LootItem itemToLoot;
+	int itemQuantity;
+
+	public int NumZombiesToSpawn { get { 
+			return itemToLoot.numGuardZombies;
+		}
+	}
+
+	void Awake () {
+		SelectItem ();
+	}
+
+	void SelectItem () {
 		int maxChance = 0;
 		for (int i = 0; i < lootItems.Count; i++) {
 			maxChance += lootItems[i].chanceMultiplier;
 		}
 
-		LootItem lootedItem = lootItems[0];
+		itemToLoot = lootItems[0];
 
 		int chance = Random.Range (0, maxChance);
 		int compareChanceHigh = 0;
@@ -40,38 +53,41 @@ public class Building : MonoBehaviour {
 			compareChanceHigh += lootItems[i].chanceMultiplier;
 
 			if (chance >= compareChanceLow && chance < compareChanceHigh) {
-				lootedItem = lootItems[i];
+				itemToLoot = lootItems[i];
 				break;
 			}
 		}
 
-		int quantity = Random.Range (lootedItem.minQuantity, lootedItem.maxQuantity + 1);
+		itemQuantity = Random.Range (itemToLoot.minQuantity, itemToLoot.maxQuantity + 1);
+	}
 
-		DisplayItems (lootedItem.type, quantity);
+	public void LootItems () {
+		
+		DisplayItems ();
 
 		hasBeenLooted = true;
 	}
 
-	void DisplayItems (LootItem.ItemType type, int quantity) {
+	void DisplayItems () {
 		string title = "";
 		string info = "";
 
-		switch (type) {
+		switch (itemToLoot.type) {
 		case LootItem.ItemType.Nothing:
 			title = "NOTHING";
 			info = "it was empty!";
 			break;
 		case LootItem.ItemType.Food:
 			title = "FOOD";
-			info = "+ " + quantity + " health";
+			info = "+ " + itemQuantity + " health";
 			break;
 		case LootItem.ItemType.Pistol:
 			title = "PISTOL";
-			info = "+ " + quantity + " bullets";
+			info = "+ " + itemQuantity + " bullets";
 			break;
 		case LootItem.ItemType.Shotgun:
 			title = "SHOTGUN";
-			info = "+ " + quantity + " shells";
+			info = "+ " + itemQuantity + " shells";
 			break;
 		case LootItem.ItemType.Zombie:
 			title = "ZOMBIE";

@@ -265,15 +265,19 @@ MonoBehaviour:
     chanceMultiplier: 15
     minQuantity: 0
     maxQuantity: 0
+    numGuardZombies: 0
   - type: 3
     chanceMultiplier: 25
     minQuantity: 2
     maxQuantity: 6
+    numGuardZombies: 2
   - type: 4
     chanceMultiplier: 25
     minQuantity: 1
     maxQuantity: 4
+    numGuardZombies: 3
   - type: 1
     chanceMultiplier: 15
     minQuantity: 1
     maxQuantity: 1
+    numGuardZombies: 1
