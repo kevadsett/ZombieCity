@@ -15,6 +15,9 @@ namespace GameStateMachine
 			startTime = Time.time;
 			this.stateMachine = stateMachine;
 			ShowScreen(true);
+			var controlLight = GameObject.Find("ControllableLight");
+			controlLight.GetComponent<LightingControl>().enabled = true;
+			controlLight.GetComponent<DayNightController>().Reset();
 		}
 
 		public override void Update()

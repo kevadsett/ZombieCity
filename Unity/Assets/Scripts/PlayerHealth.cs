@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
 		{
 			AudioPlayer.PlaySound("Hurt");
 		}
-		else
+		else if (Health == 0)
 		{
 			AudioPlayer.PlaySound("Die");
 		}
