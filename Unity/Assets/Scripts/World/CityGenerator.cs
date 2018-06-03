@@ -50,6 +50,7 @@ public class CityGenerator : MonoBehaviour {
 
 				bool isAbleToBuild = false;
 				Vector3 buildPos = Vector3.zero;
+				int attempts = 512;
 				while (isAbleToBuild == false) {
 					float radialDist = Random.Range (startRadius, endRadius);
 					float angle = Random.Range (0f, 360f);
@@ -57,7 +58,6 @@ public class CityGenerator : MonoBehaviour {
 					buildPos = Quaternion.Euler (0f, angle, 0f) * new Vector3 (0f, 0f, radialDist);
 
 					isAbleToBuild = true;
-					int attempts = 256;
 					for (int c = 0; c < buildingsSpawned.Count; c++) {
 						Building testBiru = buildingsSpawned[c];
 						Vector3 testPos = testBiru.transform.localPosition;
@@ -70,9 +70,9 @@ public class CityGenerator : MonoBehaviour {
 							isAbleToBuild = false;
 							break;
 						}
-
-						attempts--;
 					}
+
+					attempts--;
 				}
 
 				if (isAbleToBuild) {
