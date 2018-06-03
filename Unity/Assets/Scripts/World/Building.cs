@@ -8,7 +8,9 @@ public class Building : MonoBehaviour {
 	public float minScale;
 	public float maxScale;
 
-	[SerializeField] Collider doorCollider;
+	public Collider doorCollider;
+
+	public bool hasBeenLooted;
 
 	void OnDrawGizmos () {
 		Gizmos.color = Color.grey;
