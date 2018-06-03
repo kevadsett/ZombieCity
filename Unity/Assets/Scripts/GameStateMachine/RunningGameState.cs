@@ -18,7 +18,8 @@ namespace GameStateMachine
 			player.GetComponentInChildren<PlayerHealth>().ResetHealth();
 
 			var controlLight = GameObject.Find("ControllableLight");
-			controlLight.GetComponent<LightingControl>().enabled = true;
+			lightingControl = controlLight.GetComponent<LightingControl>();
+			lightingControl.enabled = true;
 			controlLight.GetComponent<DayNightController>().Reset();
 		}
 

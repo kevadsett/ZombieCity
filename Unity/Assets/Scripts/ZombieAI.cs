@@ -222,9 +222,8 @@ public class ZombieAI : MonoBehaviour
 	{
 		Vector3 direction = (player.position - transform.position).normalized;
 		// zombie lunges forward & knocks player backwards
-		var pmove = player.GetComponent<CharacterController>().SimpleMove(direction * settings.playerKnockback);
-		var zmove = control.SimpleMove(direction * settings.zombieKnockback);
-		Debug.Log(string.Format("knockback {0} {1}", pmove, zmove));
+		player.GetComponent<CharacterController>().SimpleMove(direction * settings.playerKnockback);
+		control.SimpleMove(direction * settings.zombieKnockback);
 		
 		player.GetComponent<PlayerHealth>().Damage(transform.position);	
 	}
