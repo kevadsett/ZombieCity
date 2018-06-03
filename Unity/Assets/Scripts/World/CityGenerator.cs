@@ -17,9 +17,9 @@ public class CityGenerator : MonoBehaviour {
 	[SerializeField] ZombieAI zombiePrefab;
 	[SerializeField] List<Zone> zones;
 
-	List<Building> buildingsSpawned;
+	List<Building> buildingsSpawned = new List<Building> ();
 
-	static CityGenerator Instance { get; set; }
+	public static CityGenerator Instance { get; set; }
 
 	public static Building GetBuilding (int i) {
 		return (Instance == null) ? null : Instance.buildingsSpawned[i];
@@ -31,12 +31,13 @@ public class CityGenerator : MonoBehaviour {
 	}
 
 	void Awake () {
-		Generate ();
 		Instance = this;
 	}
 
-	void Generate () {
-		buildingsSpawned = new List<Building> ();
+	public void Generate ()
+	{
+		buildingsSpawned.ForEach(building => Destroy(building.gameObject));
+		buildingsSpawned.Clear();
 
 		int nZones = zones.Count;
 		int startRadius = 0;

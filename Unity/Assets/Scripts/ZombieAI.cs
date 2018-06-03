@@ -38,7 +38,6 @@ public class ZombieAI : MonoBehaviour
 	{
 		control = GetComponent<CharacterController>();
 		animator = GetComponentInChildren<Animator>();
-		player = GameObject.FindGameObjectWithTag("Player").transform;
 		myState = State.Roaming;
 
 		BulletRaycaster.OnEnemyHit += BulletRaycasterOnOnEnemyHit;
@@ -65,8 +64,16 @@ public class ZombieAI : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update () 
+	void Update ()
 	{
+		if (StateMachine.CurrentState != StateMachine.GameState.Running) return;
+
+		if (player == null)
+		{
+			var playerObject = GameObject.FindGameObjectWithTag("Player");
+			if (playerObject == null) return;
+			player = playerObject.transform;
+		}
 		var distanceToPlayer = Vector3.Distance(player.position, transform.position);
 		switch (myState)
 		{

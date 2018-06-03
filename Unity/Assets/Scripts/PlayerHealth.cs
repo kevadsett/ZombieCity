@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+	public delegate void HealthLost(int newHealth);
+	public static event HealthLost OnHealthLost;
+
 	private const int DEFAULT_HEALTH = 5;
 	private InjuryEffect injury;
 
@@ -14,6 +17,11 @@ public class PlayerHealth : MonoBehaviour
 	{
 		Health = DEFAULT_HEALTH;
 		injury = GameObject.FindObjectOfType<InjuryEffect>();
+	}
+
+	public void ResetHealth()
+	{
+		Health = DEFAULT_HEALTH;
 	}
 
 	public void Damage(Vector3 fromPos)
@@ -40,6 +48,11 @@ public class PlayerHealth : MonoBehaviour
 			{
 				injury.Injury(false, true);
 			}
+		}
+
+		if (OnHealthLost != null)
+		{
+			OnHealthLost(Health);
 		}
 	}
 	
