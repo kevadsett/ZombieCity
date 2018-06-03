@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
+using System.Runtime.Serialization.Formatters;
 using UnityEngine;
 
 public class BulletRaycaster : MonoBehaviour
@@ -9,7 +11,7 @@ public class BulletRaycaster : MonoBehaviour
 
 	private Transform cameraTransform;
 
-	private float weaponRange;
+	private WeaponSettings weaponSettings;
 
 	private int enemyLayerMask;
 
@@ -20,7 +22,7 @@ public class BulletRaycaster : MonoBehaviour
 
 		WeaponSelector.OnWeaponChanged += WeaponSelectorOnOnWeaponChanged;
 
-		enemyLayerMask = LayerMask.GetMask("Enemy");
+		enemyLayerMask = LayerMask.GetMask("Enemy", "Building");
 	}
 
 	private void OnDestroy()
@@ -30,32 +32,63 @@ public class BulletRaycaster : MonoBehaviour
 
 	private void WeaponSelectorOnOnWeaponChanged(Weapon newWeapon)
 	{
-		weaponRange = newWeapon.Settings.Range;
+		weaponSettings = newWeapon.Settings;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		RaycastHit hit;
-		if (Physics.Raycast(
-			cameraTransform.position, cameraTransform.forward,
-			out hit,
-			weaponRange,
-			enemyLayerMask
-		))
+		for (var i = 0; i < weaponSettings.BulletsToSpawn; i++)
 		{
-			Debug.DrawRay(cameraTransform.position, cameraTransform.forward * hit.distance, Color.red);
-
-			if (!Input.GetMouseButtonDown(0)) return;
-
-			var enemy = hit.collider.gameObject;
-			if (OnEnemyHit != null)
+			var rayRotation = Quaternion.Euler(new Vector3(
+				Random.Range(-weaponSettings.AngleSpread, weaponSettings.AngleSpread),
+				Random.Range(-weaponSettings.AngleSpread, weaponSettings.AngleSpread),
+				0
+			));
+			var direction =  rayRotation * cameraTransform.forward;
+			RaycastHit hit;
+			if (Physics.Raycast(
+				cameraTransform.position, direction,
+				out hit,
+				weaponSettings.Range,
+				enemyLayerMask
+			))
 			{
-				OnEnemyHit(enemy.name, hit.point);
+				Debug.DrawRay(cameraTransform.position, direction * hit.distance, Color.red);
+
+				if (!Input.GetMouseButtonDown(0)) return;
+
+				var enemy = hit.collider.gameObject;
+				if (OnEnemyHit != null)
+				{
+					OnEnemyHit(enemy.name, hit.point);
+				}
+			}
+			else
+			{
+				Debug.DrawRay(cameraTransform.position, direction * weaponSettings.Range, Color.yellow);
 			}
 		}
-		else
-		{
-			Debug.DrawRay(cameraTransform.position, cameraTransform.forward * weaponRange, Color.yellow);
-		}
+//		RaycastHit hit;
+//		if (Physics.Raycast(
+//			cameraTransform.position, cameraTransform.forward,
+//			out hit,
+//			weaponSettings.Range,
+//			enemyLayerMask
+//		))
+//		{
+//			Debug.DrawRay(cameraTransform.position, cameraTransform.forward * hit.distance, Color.red);
+//
+//			if (!Input.GetMouseButtonDown(0)) return;
+//
+//			var enemy = hit.collider.gameObject;
+//			if (OnEnemyHit != null)
+//			{
+//				OnEnemyHit(enemy.name, hit.point);
+//			}
+//		}
+//		else
+//		{
+//			Debug.DrawRay(cameraTransform.position, cameraTransform.forward * weaponRange, Color.yellow);
+//		}
 	}
 }
