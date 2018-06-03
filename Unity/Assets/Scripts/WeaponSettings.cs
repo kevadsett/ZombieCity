@@ -7,6 +7,9 @@ public class WeaponSettings : ScriptableObject
 	public int DefaultAmmo;
 	public Sprite CrossHairsSprite;
 	public string Name;
+	public float Range;
+	public float AngleSpread;
+	public int BulletsToSpawn;
 
 	public override string ToString()
 	{

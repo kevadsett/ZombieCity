@@ -29,6 +29,8 @@ public class ZombieAI : MonoBehaviour
 	private string debugText = "";
 
 	private float deathStartTime;
+
+	private static int Id;
 	
 	// Use this for initialization
 	void Start ()
@@ -36,8 +38,28 @@ public class ZombieAI : MonoBehaviour
 		control = GetComponent<CharacterController>();
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		myState = State.Roaming;
+
+		BulletRaycaster.OnEnemyHit += BulletRaycasterOnOnEnemyHit;
+
+		name = "Zombo_" + Id;
+		Id++;
 	}
-	
+
+	private void OnDestroy()
+	{
+		BulletRaycaster.OnEnemyHit -= BulletRaycasterOnOnEnemyHit;
+	}
+
+	private void BulletRaycasterOnOnEnemyHit(string enemyid, Vector3 position)
+	{
+		if (enemyid != name) return;
+
+		deathStartTime = Time.time;
+		myState = State.Dying;
+
+		Debug.Log(name + " HIT!");
+	}
+
 	// Update is called once per frame
 	void Update () 
 	{

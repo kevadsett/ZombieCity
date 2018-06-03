@@ -56,7 +56,9 @@ public class WeaponSelector : MonoBehaviour
 			transform
 		);
 
-		currentWeapon.GetComponentInChildren<BulletSpawner>().WeaponIndex = selectedWeaponIndex;
+		var bulletSpawner = currentWeapon.GetComponentInChildren<BulletSpawner>();
+		bulletSpawner.WeaponIndex = selectedWeaponIndex;
+		bulletSpawner.Settings = nextWeapon.Settings;
 
 		if (OnWeaponChanged != null)
 		{

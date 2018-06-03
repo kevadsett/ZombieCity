@@ -6,10 +6,8 @@ public class BulletSpawner : MonoBehaviour
 {
 	public GameObject BulletPrefab;
 
-	public int BulletsToSpawn = 1;
-	public float AngleSpread = 10f;
-
 	public int WeaponIndex;
+	public WeaponSettings Settings;
 
 	private Transform playerTransform;
 	private Transform cameraTransform;
@@ -31,19 +29,21 @@ public class BulletSpawner : MonoBehaviour
 
 		WeaponStorage.Instance.Ammo[WeaponIndex]--;
 
-		for (var i = 0; i < BulletsToSpawn; i++)
+		for (var i = 0; i < Settings.BulletsToSpawn; i++)
 		{
 			var rotation = Quaternion.Euler(
-				cameraTransform.rotation.eulerAngles.x + Random.Range(-AngleSpread, AngleSpread),
-				playerTransform.rotation.eulerAngles.y + Random.Range(-AngleSpread, AngleSpread),
+				cameraTransform.rotation.eulerAngles.x + Random.Range(-Settings.AngleSpread, Settings.AngleSpread),
+				playerTransform.rotation.eulerAngles.y + Random.Range(-Settings.AngleSpread, Settings.AngleSpread),
 				0
 			);
 
-			Instantiate(
+			var bulletObject = Instantiate(
 				BulletPrefab,
 				transform.position,
 				rotation
 			);
+
+			bulletObject.GetComponent<BulletMovement>().MaxDistBeforeDestroy = Settings.Range;
 		}
 	}
 }
