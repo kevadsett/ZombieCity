@@ -8,6 +8,8 @@ public class Building : MonoBehaviour {
 	public float minScale;
 	public float maxScale;
 
+	[SerializeField] Collider doorCollider;
+
 	void OnDrawGizmos () {
 		Gizmos.color = Color.grey;
 		Gizmos.DrawWireSphere (transform.position, clearRadius);

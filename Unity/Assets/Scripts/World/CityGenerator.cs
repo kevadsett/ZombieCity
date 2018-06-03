@@ -19,8 +19,20 @@ public class CityGenerator : MonoBehaviour {
 
 	List<Building> buildingsSpawned;
 
+	static CityGenerator Instance { get; set; }
+
+	public static Building GetBuilding (int i) {
+		return (Instance == null) ? null : Instance.buildingsSpawned[i];
+	}
+
+	public static int numBuildings { get {
+			return (Instance == null) ? 0 : Instance.buildingsSpawned.Count;
+		}
+	}
+
 	void Awake () {
 		Generate ();
+		Instance = this;
 	}
 
 	void Generate () {

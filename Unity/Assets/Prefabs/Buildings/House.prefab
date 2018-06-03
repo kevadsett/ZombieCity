@@ -396,3 +396,4 @@ MonoBehaviour:
   clearRadius: 6
   minScale: 0.95
   maxScale: 1.05
+  doorCollider: {fileID: 65597986586822644}
