@@ -289,8 +289,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootButton: 101
   maxLootRadius: 4.5
-  pressFireToLootText: {fileID: 0}
-  alreadyLootedText: {fileID: 0}
 --- !u!114 &114514991698132368
 MonoBehaviour:
   m_ObjectHideFlags: 1

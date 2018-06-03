@@ -11,6 +11,20 @@ public class PlayerLooter : MonoBehaviour {
 	public static bool showLootUI { get; private set; }
 
 	void Update () {
+		if (showLootUI) {
+			HandleLootUI ();
+		} else {
+			TestForLooting ();
+		}
+	}
+
+	void HandleLootUI () {
+		if (Input.GetKeyDown (lootButton)) {
+			showLootUI = false;
+		}
+	}
+
+	void TestForLooting () {
 		Vector3 targetDir = Camera.main.transform.forward;
 		Vector3 sourcePos = Camera.main.transform.position;
 
@@ -35,6 +49,8 @@ public class PlayerLooter : MonoBehaviour {
 
 					if (Input.GetKeyDown (lootButton) && building.hasBeenLooted == false) {
 						Debug.LogWarning ("LOOTING SHOULD HAPPEN NOW");
+
+						showLootUI = true;
 						building.hasBeenLooted = true;
 					}
 				}
