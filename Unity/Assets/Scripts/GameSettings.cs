@@ -10,4 +10,6 @@ public class GameSettings : ScriptableObject
     public float dayDuration = 60.0f;
     public Color dayColour = Color.cyan;
     public Color nightColour = Color.black;
+    public Color dayAmbient = Color.grey;
+    public Color nightAmbient = Color.black;
 }
