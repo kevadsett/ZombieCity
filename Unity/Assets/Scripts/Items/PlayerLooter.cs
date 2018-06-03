@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerLooter : MonoBehaviour {
 	[SerializeField] KeyCode lootButton;
 	[SerializeField] float maxLootRadius;
-	[SerializeField] GameObject pressFireToLootText;
-	[SerializeField] GameObject alreadyLootedText;
+
+	public static bool showCantLootText { get; private set; }
+	public static bool showCanLootText { get; private set; }
+	public static bool showLootUI { get; private set; }
 
 	void Update () {
 		Vector3 targetDir = Camera.main.transform.forward;
@@ -15,26 +17,25 @@ public class PlayerLooter : MonoBehaviour {
 		RaycastHit hit;
 		if (Physics.Raycast(sourcePos, targetDir, out hit))
 		{
-			pressFireToLootText.SetActive (false);
-			alreadyLootedText.SetActive (false);
+			showCanLootText = false;
+			showCantLootText = false;
 
 			for (int i = 0; i < CityGenerator.numBuildings; i++) {
-				Building biru = CityGenerator.GetBuilding (i);
+				Building building = CityGenerator.GetBuilding (i);
 
-				Collider doorCollider = biru.doorCollider;
+				Collider doorCollider = building.doorCollider;
 
 				if (hit.collider == doorCollider && Vector3.Distance (doorCollider.transform.position, sourcePos) < maxLootRadius) {
 
-					if (biru.hasBeenLooted) {
-						alreadyLootedText.SetActive (true);
+					if (building.hasBeenLooted) {
+						showCantLootText = true;
 					} else {
-						pressFireToLootText.SetActive (true);
+						showCanLootText = true;
 					}
 
-					if (Input.GetKeyDown (lootButton)) {
+					if (Input.GetKeyDown (lootButton) && building.hasBeenLooted == false) {
 						Debug.LogWarning ("LOOTING SHOULD HAPPEN NOW");
-
-						biru.hasBeenLooted = true;
+						building.hasBeenLooted = true;
 					}
 				}
 			}

@@ -63,8 +63,8 @@ MonoBehaviour:
     - {fileID: 114877544460028914, guid: ea63da487d67e46e5a67f7ca8b24255a, type: 2}
   - name: Suburbs
     uiColour: {r: 0.5661765, g: 0.10823962, b: 0.14945401, a: 1}
-    radius: 42
-    numBuildings: 64
+    radius: 46
+    numBuildings: 36
     angleIncrement: 90
     buildings:
     - {fileID: 114520385904000522, guid: 6a79ba5766bd24515a3971a3e45d1883, type: 2}

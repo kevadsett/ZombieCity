@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Building : MonoBehaviour {
 
-	public int clearRadius;
+	public float clearRadius;
 	public float minScale;
 	public float maxScale;
 
