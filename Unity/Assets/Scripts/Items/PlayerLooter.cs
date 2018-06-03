@@ -19,22 +19,21 @@ public class PlayerLooter : MonoBehaviour {
 			alreadyLootedText.SetActive (false);
 
 			for (int i = 0; i < CityGenerator.numBuildings; i++) {
-				Building biru = CityGenerator.GetBuilding (i);
+				Building building = CityGenerator.GetBuilding (i);
 
-				Collider doorCollider = biru.doorCollider;
+				Collider doorCollider = building.doorCollider;
 
 				if (hit.collider == doorCollider && Vector3.Distance (doorCollider.transform.position, sourcePos) < maxLootRadius) {
 
-					if (biru.hasBeenLooted) {
+					if (building.hasBeenLooted) {
 						alreadyLootedText.SetActive (true);
 					} else {
 						pressFireToLootText.SetActive (true);
 					}
 
-					if (Input.GetKeyDown (lootButton)) {
+					if (Input.GetKeyDown (lootButton) && building.hasBeenLooted == false) {
 						Debug.LogWarning ("LOOTING SHOULD HAPPEN NOW");
-
-						biru.hasBeenLooted = true;
+						building.hasBeenLooted = true;
 					}
 				}
 			}
