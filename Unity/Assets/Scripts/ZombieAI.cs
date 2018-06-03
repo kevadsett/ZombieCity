@@ -1,5 +1,6 @@
 ﻿//#define DEBUG_TEST
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -9,9 +10,17 @@ using UnityEngine;
 public class ZombieAI : MonoBehaviour
 {
 	[SerializeField] private ZombieSettings settings;
+
+	private enum State
+	{
+		Roaming,
+		Chasing,
+		Attacking,
+		Dying
+	}
+
+	private State myState;
 	
-	
-	private bool isChasing, isAttacking;
 	private float attackTimer;
 	private Transform player;
 	private CharacterController control;
@@ -24,50 +33,78 @@ public class ZombieAI : MonoBehaviour
 	{
 		control = GetComponent<CharacterController>();
 		player = GameObject.FindGameObjectWithTag("Player").transform;
+		myState = State.Roaming;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		float distanceToPlayer = Vector3.Distance(player.position, transform.position);
+		var distanceToPlayer = Vector3.Distance(player.position, transform.position);
+		switch (myState)
+		{
+			case State.Roaming:
+				UpdateRoaming(distanceToPlayer);
+				break;
+			case State.Chasing:
+				UpdateChasing(distanceToPlayer);
+				break;
+			case State.Attacking:
+				UpdateAttacking(distanceToPlayer);
+				break;
+			case State.Dying:
+				UpdateDying();
+				break;
+			default:
+				throw new ArgumentOutOfRangeException("State " + myState + " not recognised.");
+		}
+	}
+
+	private void UpdateRoaming(float distanceToPlayer)
+	{
+		control.SimpleMove(Vector3.zero);	// move nothing: it will drop them
+
 		if (distanceToPlayer < settings.sightDistance)
 		{
-			isChasing = true;
-		} 
-		else if (distanceToPlayer > settings.lostDistance)
+			myState = State.Chasing;
+		}
+	}
+
+	private void UpdateChasing(float distanceToPlayer)
+	{
+		ChasePlayer();
+
+		if (distanceToPlayer > settings.lostDistance)
 		{
-			isChasing = false;
+			myState = State.Roaming;
 		}
 
 		if (distanceToPlayer <= settings.attackRange)
 		{
-			isAttacking = true;
+			myState = State.Attacking;
 		}
-		else if (distanceToPlayer > settings.attackRange * 2)
+	}
+
+	private void UpdateAttacking(float distanceToPlayer)
+	{
+		PrepareAttack();
+
+		if (distanceToPlayer > settings.attackRange * 2)
 		{
-			isAttacking = false;
+			myState = State.Chasing;
 			attackTimer = settings.attackTime;
 		}
+	}
 
-		if (isChasing)
-		{
-			ChasePlayer();
-		}
-		else
-		{
-			control.SimpleMove(Vector3.zero);	// move nothing: it will drop them
-		}
-		if (isAttacking)
-		{
-			PrepareAttack();
-		}
+	private void UpdateDying()
+	{
+
 	}
 
 	private void ChasePlayer()
 	{
 		Vector3 targetDir = player.position - transform.position;
 		RaycastHit hit;
-		if (Physics.Raycast(transform.position, targetDir, out hit) && hit.transform.gameObject.tag == "Player")
+		if (Physics.Raycast(transform.position, targetDir, out hit) && hit.transform.gameObject.CompareTag("Player"))
 		{
 			debugText = "can see you";
 			lastKnownPos = player.position;
@@ -77,7 +114,7 @@ public class ZombieAI : MonoBehaviour
 			if (Vector3.Distance(lastKnownPos, transform.position) < 0.5f)
 			{
 				debugText = "give up";
-				isChasing = false;
+				myState = State.Roaming;
 				return;
 			}
 			else
