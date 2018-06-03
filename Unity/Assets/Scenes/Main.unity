@@ -1196,26 +1196,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 82500921821709842, guid: c9fcddc94cf8740ffb6557dc3a5fc62c,
-        type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82862667640299572, guid: c9fcddc94cf8740ffb6557dc3a5fc62c,
-        type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82312369705249218, guid: c9fcddc94cf8740ffb6557dc3a5fc62c,
-        type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82064440299858718, guid: c9fcddc94cf8740ffb6557dc3a5fc62c,
-        type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9fcddc94cf8740ffb6557dc3a5fc62c, type: 2}
   m_IsPrefabParent: 0
@@ -1429,6 +1409,7 @@ GameObject:
   - component: {fileID: 1975686509}
   - component: {fileID: 1975686508}
   - component: {fileID: 1975686507}
+  - component: {fileID: 1975686506}
   m_Layer: 0
   m_Name: IntroCamera
   m_TagString: Untagged
@@ -1436,6 +1417,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!81 &1975686506
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1975686505}
+  m_Enabled: 1
 --- !u!124 &1975686507
 Behaviour:
   m_ObjectHideFlags: 0
