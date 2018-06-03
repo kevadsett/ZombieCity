@@ -26,8 +26,61 @@ public class Building : MonoBehaviour {
 	[SerializeField] List<LootItem> lootItems;
 
 	public void LootItems () {
-		Debug.LogWarning ("LOOTING ITEMS!");
+		int maxChance = 0;
+		for (int i = 0; i < lootItems.Count; i++) {
+			maxChance += lootItems[i].chanceMultiplier;
+		}
+
+		LootItem lootedItem = lootItems[0];
+
+		int chance = Random.Range (0, maxChance);
+		int compareChanceHigh = 0;
+		for (int i = 0; i < lootItems.Count; i++) {
+			int compareChanceLow = compareChanceHigh;
+			compareChanceHigh += lootItems[i].chanceMultiplier;
+
+			if (chance >= compareChanceLow && chance < compareChanceHigh) {
+				lootedItem = lootItems[i];
+				break;
+			}
+		}
+
+		int quantity = Random.Range (lootedItem.minQuantity, lootedItem.maxQuantity + 1);
+
+		DisplayItems (lootedItem.type, quantity);
+
 		hasBeenLooted = true;
+	}
+
+	void DisplayItems (LootItem.ItemType type, int quantity) {
+		string title = "";
+		string info = "";
+
+		switch (type) {
+		case LootItem.ItemType.Nothing:
+			title = "NOTHING";
+			info = "it was empty!";
+			break;
+		case LootItem.ItemType.Food:
+			title = "FOOD";
+			info = "+ " + quantity + " health";
+			break;
+		case LootItem.ItemType.Pistol:
+			title = "PISTOL";
+			info = "+ " + quantity + " bullets";
+			break;
+		case LootItem.ItemType.Shotgun:
+			title = "SHOTGUN";
+			info = "+ " + quantity + " shells";
+			break;
+		case LootItem.ItemType.Zombie:
+			title = "ZOMBIE";
+			info = "+ he's angry!";
+			break;
+		}
+
+		PlayerLooter.UpdateUIText (title, info);
+		Debug.Log (title + "\n" + info);
 	}
 
 	void OnDrawGizmos () {

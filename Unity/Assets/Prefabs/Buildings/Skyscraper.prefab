@@ -260,4 +260,20 @@ MonoBehaviour:
   minScale: 1.1
   maxScale: 1.2
   doorCollider: {fileID: 65009958423198640}
-  hasBeenLooted: 0
+  lootItems:
+  - type: 0
+    chanceMultiplier: 15
+    minQuantity: 0
+    maxQuantity: 0
+  - type: 3
+    chanceMultiplier: 25
+    minQuantity: 2
+    maxQuantity: 6
+  - type: 4
+    chanceMultiplier: 25
+    minQuantity: 1
+    maxQuantity: 4
+  - type: 1
+    chanceMultiplier: 15
+    minQuantity: 1
+    maxQuantity: 1

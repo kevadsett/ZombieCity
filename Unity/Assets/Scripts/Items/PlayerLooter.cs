@@ -10,6 +10,14 @@ public class PlayerLooter : MonoBehaviour {
 	public static bool showCanLootText { get; private set; }
 	public static bool showLootUI { get; private set; }
 
+	public static string titleText { get; private set; }
+	public static string infoText { get; private set; }
+
+	public static void UpdateUIText (string title, string info) {
+		titleText = title;
+		infoText = info;
+	}
+
 	void Update () {
 		if (showLootUI) {
 			HandleLootUI ();

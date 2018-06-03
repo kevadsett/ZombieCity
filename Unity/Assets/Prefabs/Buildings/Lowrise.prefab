@@ -262,7 +262,7 @@ MonoBehaviour:
   doorCollider: {fileID: 65597986586822644}
   lootItems:
   - type: 0
-    chanceMultiplier: 30
+    chanceMultiplier: 25
     minQuantity: 0
     maxQuantity: 0
   - type: 1
@@ -270,10 +270,10 @@ MonoBehaviour:
     minQuantity: 1
     maxQuantity: 1
   - type: 3
-    chanceMultiplier: 10
+    chanceMultiplier: 20
     minQuantity: 2
     maxQuantity: 6
   - type: 4
-    chanceMultiplier: 2
+    chanceMultiplier: 5
     minQuantity: 1
     maxQuantity: 3
