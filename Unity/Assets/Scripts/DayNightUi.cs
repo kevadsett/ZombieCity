@@ -17,21 +17,25 @@ public class DayNightUi : MonoBehaviour
 		text = GetComponentInChildren<Text>();
 		dayNightImg = transform.Find("Mask").Find("DayNight").GetComponent<Image>();
 		dayNightRT = dayNightImg.GetComponent<RectTransform>();
+		DayNightController.OnDayChanged += OnDayChanged;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		dayNightRT.rotation=Quaternion.Euler(0,0,controller.Days * -360);
-		int day = Mathf.FloorToInt(controller.Days);
-		float delta = controller.Days - day;
-		if (delta < 0.5f)
+		dayNightRT.rotation=Quaternion.Euler(0,0,controller.Days * 360 + 180);
+	}
+
+	void OnDayChanged(int day, bool isNight)
+	{
+		if (isNight)
 		{
-			text.text = string.Format("Day {0}", day);
+			text.text = string.Format("Night {0}", day);
+
 		}
 		else
 		{
-			text.text = string.Format("Night {0}", day);
+			text.text = string.Format("Day {0}", day);
 		}
 	}
 }
