@@ -26,6 +26,7 @@ namespace GameStateMachine
 		{
 			if (newhealth == 0)
 			{
+				AudioPlayer.PlaySound ("GameOver");
 				stateMachine.ChangeState(StateMachine.GameState.GameOver);
 			}
 		}
