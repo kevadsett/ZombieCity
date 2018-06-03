@@ -14,9 +14,9 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 8
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
+  m_FogMode: 2
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
@@ -682,46 +682,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 108885293824785888, guid: 7127f9ad630ed4a1bafc888cc30f451e,
-        type: 2}
-      propertyPath: m_Range
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 108885293824785888, guid: 7127f9ad630ed4a1bafc888cc30f451e,
-        type: 2}
-      propertyPath: m_Intensity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 108885293824785888, guid: 7127f9ad630ed4a1bafc888cc30f451e,
-        type: 2}
-      propertyPath: m_SpotAngle
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 108885293824785888, guid: 7127f9ad630ed4a1bafc888cc30f451e,
-        type: 2}
-      propertyPath: m_Shadows.m_Type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4552513917103110, guid: 7127f9ad630ed4a1bafc888cc30f451e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4552513917103110, guid: 7127f9ad630ed4a1bafc888cc30f451e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114720292288498854, guid: 7127f9ad630ed4a1bafc888cc30f451e,
-        type: 2}
-      propertyPath: CollectedWeapons.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 67fcc3c9c264a48998fc8e30f15270c3,
-        type: 2}
-    - target: {fileID: 114720292288498854, guid: 7127f9ad630ed4a1bafc888cc30f451e,
-        type: 2}
-      propertyPath: CollectedWeapons.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 932f20d8fb44540e299218baae0dc472,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7127f9ad630ed4a1bafc888cc30f451e, type: 2}
   m_IsPrefabParent: 0

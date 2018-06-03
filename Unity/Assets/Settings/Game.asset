@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Name: Game
   m_EditorClassIdentifier: 
   vignetteTime: 2
-  dayDuration: 600
+  dayDuration: 120
   dayColour: {r: 0.5752595, g: 0.8613025, b: 0.97794116, a: 1}
-  nightColour: {r: 0, g: 0, b: 0, a: 1}
+  nightColour: {r: 0.16822423, g: 0.15668252, b: 0.30882353, a: 1}
   dayAmbient: {r: 0.6397059, g: 0.60778546, b: 0.58326125, a: 1}
-  nightAmbient: {r: 0, g: 0, b: 0, a: 1}
+  nightAmbient: {r: 0.12292686, g: 0.11386246, b: 0.19117647, a: 1}
+  dayFog: 0.01
+  nightFog: 0.08
