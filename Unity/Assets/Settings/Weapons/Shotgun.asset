@@ -16,4 +16,6 @@ MonoBehaviour:
   DefaultAmmo: 6
   CrossHairsSprite: {fileID: 21300000, guid: 38b03e7c17609452e88e8f623e31dc34, type: 3}
   Name: Shotgun
-  Range: 0
+  Range: 50
+  AngleSpread: 7
+  BulletsToSpawn: 6

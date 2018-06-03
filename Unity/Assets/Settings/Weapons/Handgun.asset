@@ -16,4 +16,6 @@ MonoBehaviour:
   DefaultAmmo: 12
   CrossHairsSprite: {fileID: 21300000, guid: 125082b1ff69147c7a7eb21fab55615f, type: 3}
   Name: Pistol
-  Range: 0
+  Range: 100
+  AngleSpread: 0.1
+  BulletsToSpawn: 1
