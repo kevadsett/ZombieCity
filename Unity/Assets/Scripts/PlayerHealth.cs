@@ -19,7 +19,28 @@ public class PlayerHealth : MonoBehaviour
 	public void Damage(Vector3 fromPos)
 	{
 		Health--;
-		injury.Injury(true,true);
+		// determine the angle of attack
+		// the Vector3.Angle gives abs angle so comparing to left/right
+		var dir = fromPos - transform.position;
+		var angFront = Vector3.Angle(transform.forward, dir);
+		var angLeft = Vector3.Angle(-transform.right, dir);
+		var angRight = Vector3.Angle(transform.right, dir);
+		//Debug.Log(string.Format("Hit angle {0:0.00}",ang));
+		if (angFront < angLeft && angFront < angRight) // front
+		{
+			injury.Injury(true,true);			
+		}
+		else
+		{
+			if (angLeft < angRight)
+			{
+				injury.Injury(true, false);
+			}
+			else
+			{
+				injury.Injury(false, true);
+			}
+		}
 	}
 	
 #if DEBUG_TEST

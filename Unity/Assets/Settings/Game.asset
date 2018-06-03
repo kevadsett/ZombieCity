@@ -8,7 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 53eba1db1eff43c9bd94c978a94be988, type: 3}
   m_Name: Game
-  m_EditorClassIdentifier: Assembly-CSharp::GameSettings
+  m_EditorClassIdentifier: 
   vignetteTime: 2

@@ -24,6 +24,7 @@ public class ZombieAI : MonoBehaviour
 	private float attackTimer;
 	private Transform player;
 	private CharacterController control;
+	private Animator animator;
 
 	private Vector3 lastKnownPos;
 	private string debugText = "";
@@ -36,6 +37,7 @@ public class ZombieAI : MonoBehaviour
 	void Start ()
 	{
 		control = GetComponent<CharacterController>();
+		animator = GetComponentInChildren<Animator>();
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		myState = State.Roaming;
 
@@ -43,6 +45,8 @@ public class ZombieAI : MonoBehaviour
 
 		name = "Zombo_" + Id;
 		Id++;
+		animator.SetBool("isChasing",false);
+		animator.SetBool("isAttacking",false);
 	}
 
 	private void OnDestroy()
@@ -68,12 +72,18 @@ public class ZombieAI : MonoBehaviour
 		{
 			case State.Roaming:
 				UpdateRoaming(distanceToPlayer);
+				animator.SetBool("isChasing",false);
+				animator.SetBool("isAttacking",false);
 				break;
 			case State.Chasing:
 				UpdateChasing(distanceToPlayer);
+				animator.SetBool("isChasing",true);
+				animator.SetBool("isAttacking",false);
 				break;
 			case State.Attacking:
 				UpdateAttacking(distanceToPlayer);
+				animator.SetBool("isChasing",false);
+				animator.SetBool("isAttacking",true);
 				break;
 			case State.Dying:
 				UpdateDying();
@@ -89,7 +99,7 @@ public class ZombieAI : MonoBehaviour
 
 		if (distanceToPlayer < settings.sightDistance)
 		{
-			myState = State.Chasing;
+			myState = State.Chasing;	
 		}
 	}
 
@@ -110,12 +120,12 @@ public class ZombieAI : MonoBehaviour
 
 	private void UpdateAttacking(float distanceToPlayer)
 	{
-		PrepareAttack();
+		AttackPlayer();
 
 		if (distanceToPlayer > settings.attackRange * 2)
 		{
 			myState = State.Chasing;
-			attackTimer = settings.attackTime;
+			attackTimer = 0;
 		}
 	}
 
@@ -125,6 +135,10 @@ public class ZombieAI : MonoBehaviour
 		{
 			Destroy(gameObject);
 			// gav-style pop
+		}
+		else
+		{
+			control.SimpleMove(Vector3.zero);	// move nothing: it will drop them
 		}
 	}
 
@@ -163,7 +177,7 @@ public class ZombieAI : MonoBehaviour
 		}
 	}
 
-	private void PrepareAttack()
+	private void AttackPlayer()
 	{
 		// force not over player
 		Vector3 relPos = transform.position - player.position;
@@ -174,15 +188,21 @@ public class ZombieAI : MonoBehaviour
 			transform.position = player.position + relPos;
 		}
 
-		attackTimer -= Time.deltaTime;
+		var oldTime = attackTimer;
+		attackTimer += Time.deltaTime;
 		debugText = string.Format("Attack {0:0.00}", attackTimer);
-		if (attackTimer <= 0)
+		// check if the attack takes place:
+		// we have a extra timer to spot the moment of the attack 
+		if (attackTimer >= settings.attackDamageAt && oldTime < settings.attackDamageAt)
 		{
-			attackTimer = settings.attackTime;
-			AttackPlayer();
+			DamagePlayer();
+		}
+		if (attackTimer >= settings.attackTime)	// reset
+		{
+			attackTimer = 0;
 		}
 	}
-	private void AttackPlayer()
+	private void DamagePlayer()
 	{
 		Vector3 direction = (player.position - transform.position).normalized;
 		// zombie lunges forward & knocks player backwards
@@ -198,7 +218,8 @@ public class ZombieAI : MonoBehaviour
 	{
 		float distanceToPlayer = Vector3.Distance(player.position, transform.position);
 //		GUILayout.Label(string.Format("Distance to player {0:0.00} Scans {1:0.00} {2:0.00} {3:0.00} {4}",distanceToPlayer,leftDist,forwardDist,rightDist,debugText));
-		GUILayout.Label(string.Format("Distance to player {0:0.00} {1}",distanceToPlayer,debugText));
+		GUILayout.Label(string.Format("Distance to player {0:0.00} {1} {2} ",
+			distanceToPlayer,myState,debugText));
 	}
 
 	private void OnDrawGizmos()
