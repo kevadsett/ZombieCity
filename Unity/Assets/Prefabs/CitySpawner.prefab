@@ -80,7 +80,7 @@ MonoBehaviour:
     uiColour: {r: 0.15730223, g: 0.627451, b: 0, a: 1}
     radius: 50
     numBuildings: 24
-    angleIncrement: 45
+    angleIncrement: 30
     buildings:
     - {fileID: 114520385904000522, guid: 6a79ba5766bd24515a3971a3e45d1883, type: 2}
     - {fileID: 114853701348670748, guid: 5189c1ef1607c4d97ab002c081e39575, type: 2}
