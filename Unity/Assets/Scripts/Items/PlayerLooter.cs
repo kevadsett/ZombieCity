@@ -48,17 +48,19 @@ public class PlayerLooter : MonoBehaviour {
 
 				Collider doorCollider = building.doorCollider;
 
-				if (hit.collider == doorCollider && Vector3.Distance (doorCollider.transform.position, sourcePos) < maxLootRadius) {
+				if (building.doorCollider != null) {
+					if (hit.collider == doorCollider && Vector3.Distance (doorCollider.transform.position, sourcePos) < maxLootRadius) {
 
-					if (building.hasBeenLooted) {
-						showCantLootText = true;
-					} else {
-						showCanLootText = true;
-					}
+						if (building.hasBeenLooted) {
+							showCantLootText = true;
+						} else {
+							showCanLootText = true;
+						}
 
-					if (Input.GetKeyDown (lootButton) && building.hasBeenLooted == false) {
-						showLootUI = true;
-						building.LootItems ();
+						if (Input.GetKeyDown (lootButton) && building.hasBeenLooted == false) {
+							showLootUI = true;
+							building.LootItems ();
+						}
 					}
 				}
 			}

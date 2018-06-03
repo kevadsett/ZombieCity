@@ -49,6 +49,5 @@ public class InjuryEffect : MonoBehaviour
 		{
 			rightTimer = settings.vignetteTime;
 		}
-		
 	}
 }

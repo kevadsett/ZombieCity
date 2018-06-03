@@ -73,7 +73,7 @@ public class Building : MonoBehaviour {
 		case LootItem.ItemType.Nothing:
 			break;
 		case LootItem.ItemType.Food:
-			// TODO
+			GameObject.FindObjectOfType<PlayerHealth>().Heal(itemQuantity);
 			break;
 		case LootItem.ItemType.Pistol:
 			WeaponStorage.Instance.Ammo["Pistol"] += itemQuantity;
