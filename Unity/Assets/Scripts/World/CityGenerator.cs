@@ -32,10 +32,20 @@ public class CityGenerator : MonoBehaviour {
 
 	void Awake () {
 		Instance = this;
+		DayNightController.OnDayChanged += SpawnMoreZombies;
 	}
 
-	public void Generate ()
-	{
+	public void SpawnMoreZombies (int day, bool isNight) {
+		if (isNight && day > 1) {
+			for (int i = 0; i < buildingsSpawned.Count; i++) {
+				if (Random.Range (0, 3) == 0) {
+					SpawnZombies (buildingsSpawned[i]);
+				}
+			}
+		}
+	}
+
+	public void Generate () {
 		buildingsSpawned.ForEach(building => Destroy(building.gameObject));
 		buildingsSpawned.Clear();
 
