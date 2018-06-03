@@ -1,4 +1,4 @@
-﻿#define DEBUG_TEST
+﻿//#define DEBUG_TEST
 
 using System;
 using System.Collections;
