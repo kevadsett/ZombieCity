@@ -76,7 +76,7 @@ public class BulletRaycaster : MonoBehaviour
 			{
 				Debug.Break();
 				Debug.DrawRay(cameraTransform.position, direction * weaponSettings.Range, Color.yellow);
-				endPositions.Add(direction * weaponSettings.Range);
+				endPositions.Add(cameraTransform.position + direction * weaponSettings.Range);
 			}
 		}
 
