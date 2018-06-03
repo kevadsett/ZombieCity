@@ -62,10 +62,30 @@ public class Building : MonoBehaviour {
 	}
 
 	public void LootItems () {
-		
+		ApplyItems ();
 		DisplayItems ();
 
 		hasBeenLooted = true;
+	}
+
+	void ApplyItems () {
+		switch (itemToLoot.type) {
+		case LootItem.ItemType.Nothing:
+			break;
+		case LootItem.ItemType.Food:
+			// TODO
+			break;
+		case LootItem.ItemType.Pistol:
+			WeaponStorage.Instance.Ammo["Pistol"] += itemQuantity;
+			Debug.Log ("get bullets");
+			break;
+		case LootItem.ItemType.Shotgun:
+			WeaponStorage.Instance.Ammo["Shotgun"] += itemQuantity;
+			break;
+		case LootItem.ItemType.Zombie:
+			// TODO
+			break;
+		}
 	}
 
 	void DisplayItems () {
@@ -78,7 +98,7 @@ public class Building : MonoBehaviour {
 			info = "it was empty!";
 			break;
 		case LootItem.ItemType.Food:
-			title = "FOOD";
+			title = "FOOD x " + itemQuantity;
 			info = "+ " + itemQuantity + " health";
 			break;
 		case LootItem.ItemType.Pistol:

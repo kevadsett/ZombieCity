@@ -17,4 +17,6 @@ public class LootUIWindow : MonoBehaviour {
 		titleText.text = PlayerLooter.titleText;
 		infoText.text = PlayerLooter.infoText;
 	}
+
+
 }

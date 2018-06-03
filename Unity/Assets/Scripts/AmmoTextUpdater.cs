@@ -34,7 +34,7 @@ public class AmmoTextUpdater : MonoBehaviour
 		UpdateText();
 	}
 
-	private void UpdateText()
+	public void UpdateText()
 	{
 		text.text = WeaponStorage.Instance.Ammo[weaponSettings.Name].ToString();
 	}
