@@ -48,10 +48,8 @@ public class PlayerLooter : MonoBehaviour {
 					}
 
 					if (Input.GetKeyDown (lootButton) && building.hasBeenLooted == false) {
-						Debug.LogWarning ("LOOTING SHOULD HAPPEN NOW");
-
 						showLootUI = true;
-						building.hasBeenLooted = true;
+						building.LootItems ();
 					}
 				}
 			}

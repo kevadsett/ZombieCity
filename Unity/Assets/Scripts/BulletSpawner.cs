@@ -20,8 +20,6 @@ public class BulletSpawner : MonoBehaviour
 
 	private void BulletRaycasterOnOnShotsFired(List<Vector3> positions)
 	{
-		WeaponStorage.Instance.Ammo[Settings.Name]--;
-
 		foreach (var position in positions)
 		{
 			var bulletObject = Instantiate(BulletPrefab);
