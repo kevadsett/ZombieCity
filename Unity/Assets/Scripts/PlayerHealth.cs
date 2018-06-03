@@ -27,6 +27,16 @@ public class PlayerHealth : MonoBehaviour
 	public void Damage(Vector3 fromPos)
 	{
 		Health--;
+		
+		if (Health > 0)
+		{
+			AudioPlayer.PlaySound("Hurt");
+		}
+		else
+		{
+			AudioPlayer.PlaySound("Die");
+		}
+
 		// determine the angle of attack
 		// the Vector3.Angle gives abs angle so comparing to left/right
 		var dir = fromPos - transform.position;
