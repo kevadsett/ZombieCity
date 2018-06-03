@@ -14,7 +14,7 @@ public class BulletRaycaster : MonoBehaviour
 	private int enemyLayerMask;
 
 	// Use this for initialization
-	void Start ()
+	private void Awake()
 	{
 		cameraTransform = Camera.main.transform;
 
