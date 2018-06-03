@@ -57,11 +57,11 @@ public class ZombieAI : MonoBehaviour
 	private void BulletRaycasterOnOnEnemyHit(string enemyid, Vector3 position)
 	{
 		if (enemyid != name) return;
+		if (myState == State.Dying) return;
 
 		deathStartTime = Time.time;
 		myState = State.Dying;
-
-		Debug.Log(name + " HIT!");
+		animator.SetTrigger("die");
 	}
 
 	// Update is called once per frame
