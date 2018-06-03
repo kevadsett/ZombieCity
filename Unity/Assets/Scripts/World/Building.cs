@@ -10,7 +10,25 @@ public class Building : MonoBehaviour {
 
 	public Collider doorCollider;
 
-	public bool hasBeenLooted;
+	public bool hasBeenLooted { get; private set; }
+
+	[System.Serializable] struct LootItem {
+		public enum ItemType {
+			Nothing, Food, Zombie, Pistol, Shotgun
+		}
+
+		public ItemType type;
+		public int chanceMultiplier;
+		public int minQuantity;
+		public int maxQuantity;
+	}
+
+	[SerializeField] List<LootItem> lootItems;
+
+	public void LootItems () {
+		Debug.LogWarning ("LOOTING ITEMS!");
+		hasBeenLooted = true;
+	}
 
 	void OnDrawGizmos () {
 		Gizmos.color = Color.grey;
