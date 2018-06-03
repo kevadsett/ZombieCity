@@ -8,14 +8,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: d36d92075dd248f29591ac8595d46919, type: 3}
   m_Name: Zombie
-  m_EditorClassIdentifier: Assembly-CSharp::ZombieSettings
+  m_EditorClassIdentifier: 
   sightDistance: 10
   lostDistance: 30
   chaseSpeed: 2
   turnSpeed: 120
   attackRange: 2
-  attackTime: 1
-  playerKnockback: 100
-  zombieKnockback: 50
+  attackTime: 1.333
+  attackDamageAt: 0.5
+  playerKnockback: 0
+  zombieKnockback: 0
+  deathDuration: 1
