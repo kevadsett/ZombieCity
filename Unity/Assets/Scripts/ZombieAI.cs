@@ -60,6 +60,7 @@ public class ZombieAI : MonoBehaviour
 
 		deathStartTime = Time.time;
 		myState = State.Dying;
+		animator.SetTrigger("die");
 
 		Debug.Log(name + " HIT!");
 	}
