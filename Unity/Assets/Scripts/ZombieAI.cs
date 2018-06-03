@@ -27,6 +27,8 @@ public class ZombieAI : MonoBehaviour
 
 	private Vector3 lastKnownPos;
 	private string debugText = "";
+
+	private float deathStartTime;
 	
 	// Use this for initialization
 	void Start ()
@@ -97,7 +99,11 @@ public class ZombieAI : MonoBehaviour
 
 	private void UpdateDying()
 	{
-
+		if (Time.time - deathStartTime >= settings.deathDuration)
+		{
+			Destroy(gameObject);
+			// gav-style pop
+		}
 	}
 
 	private void ChasePlayer()

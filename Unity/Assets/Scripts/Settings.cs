@@ -9,6 +9,7 @@ public class ZombieSettings : ScriptableObject
 	public float chaseSpeed=2,turnSpeed=30;
 	public float attackRange = 1.0f, attackTime = 1.0f;
 	public float playerKnockback = 100, zombieKnockback = 50;
+	public float deathDuration = 1f;
 }
 
 [CreateAssetMenu(fileName = "Data", menuName = "Settings/Game", order = 2)]
