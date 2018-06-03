@@ -16,6 +16,13 @@ public class PlayerHealth : MonoBehaviour
 		injury = GameObject.FindObjectOfType<InjuryEffect>();
 	}
 
+	public void Heal(int amount)
+	{
+		Health += amount;
+		if (Health > DEFAULT_HEALTH)
+			Health = DEFAULT_HEALTH;
+	}
+
 	public void Damage(Vector3 fromPos)
 	{
 		Health--;
