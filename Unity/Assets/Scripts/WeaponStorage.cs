@@ -15,7 +15,7 @@ public class WeaponStorage : MonoBehaviour
 		{"Shotgun", 6}
 	};
 
-	void Start()
+	private void Awake()
 	{
 		Instance = this;
 	}

@@ -15,7 +15,6 @@ public class AmmoTextUpdater : MonoBehaviour
 		text = GetComponent<Text>();
 		WeaponSelector.OnWeaponChanged += WeaponSelectorOnOnWeaponChanged;
 		BulletRaycaster.OnShotsFired += BulletRaycasterOnOnShotsFired;
-		UpdateText();
 	}
 
 	private void BulletRaycasterOnOnShotsFired(List<Vector3> positions)
