@@ -19,8 +19,8 @@ public class CrosshairsChanger : MonoBehaviour
 		WeaponSelector.OnWeaponChanged -= WeaponSelectorOnOnWeaponChanged;
 	}
 
-	private void WeaponSelectorOnOnWeaponChanged(Weapon newWeapon)
+	private void WeaponSelectorOnOnWeaponChanged(WeaponSettings newWeapon)
 	{
-		image.sprite = newWeapon.Settings.CrossHairsSprite;
+		image.sprite = newWeapon.CrossHairsSprite;
 	}
 }

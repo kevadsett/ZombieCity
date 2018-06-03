@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2091531f3864498ca412a8ed52f18743, type: 3}
   m_Name: Handgun
   m_EditorClassIdentifier: 
-  WeaponPrefab: {fileID: 1394469730351190, guid: a5a244dcf22394581b57ea51a9758a28,
+  WeaponPrefab: {fileID: 1581810571628930, guid: 70fc8c81aafa1c243b9500bd7ae25a4a,
     type: 2}
   DefaultAmmo: 12
   CrossHairsSprite: {fileID: 21300000, guid: 125082b1ff69147c7a7eb21fab55615f, type: 3}

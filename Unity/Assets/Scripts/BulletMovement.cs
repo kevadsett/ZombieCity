@@ -4,21 +4,15 @@ public class BulletMovement : MonoBehaviour
 {
 	public float Speed;
 
-	public float MaxDistBeforeDestroy;
-
-	private Vector3 startPosition;
-
-	void Start ()
-	{
-		startPosition = transform.position;
-	}
+	public Vector3 TargetPosition;
 
 	void Update()
 	{
-		var newPosition = transform.position + transform.forward * Speed * Time.deltaTime;
-		transform.position = newPosition;
+		var step = Speed * Time.deltaTime;
+		Debug.Log(TargetPosition);
+		transform.position = Vector3.MoveTowards(transform.position, TargetPosition, step);
 
-		if (Vector3.Magnitude(newPosition - startPosition) >= MaxDistBeforeDestroy)
+		if (Vector3.Magnitude(transform.position - TargetPosition) < 0.1f)
 		{
 			Destroy(gameObject);
 		}

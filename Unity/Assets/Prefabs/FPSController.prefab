@@ -325,9 +325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollectedWeapons:
-  - {fileID: 114720571597547678, guid: a5a244dcf22394581b57ea51a9758a28, type: 2}
-  - {fileID: 114720571597547678, guid: e5983337e1723452dbcc698bab5f6825, type: 2}
-  Ammo: 0c00000006000000
+  - {fileID: 11400000, guid: 67fcc3c9c264a48998fc8e30f15270c3, type: 2}
+  - {fileID: 11400000, guid: 932f20d8fb44540e299218baae0dc472, type: 2}
 --- !u!114 &114721207288030136
 MonoBehaviour:
   m_ObjectHideFlags: 1

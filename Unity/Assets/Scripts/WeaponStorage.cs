@@ -5,8 +5,14 @@ using UnityEngine;
 public class WeaponStorage : MonoBehaviour
 {
 	public static WeaponStorage Instance;
-	public List<Weapon> CollectedWeapons = new List<Weapon>();
-	public List<int> Ammo = new List<int>();
+	public List<WeaponSettings> CollectedWeapons = new List<WeaponSettings>();
+
+	// TODO: Don't hard code this
+	public Dictionary<string, int> Ammo = new Dictionary<string, int>
+	{
+		{"Pistol", 12},
+		{"Shotgun", 6}
+	};
 
 	void Start()
 	{

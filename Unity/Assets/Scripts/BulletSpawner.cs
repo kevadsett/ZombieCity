@@ -6,44 +6,32 @@ public class BulletSpawner : MonoBehaviour
 {
 	public GameObject BulletPrefab;
 
-	public int WeaponIndex;
 	public WeaponSettings Settings;
-
-	private Transform playerTransform;
-	private Transform cameraTransform;
 
 	void Start()
 	{
-		playerTransform = GameObject.Find("FPSController").transform;
-		cameraTransform = GameObject.Find("FirstPersonCharacter").transform;
+		BulletRaycaster.OnShotsFired += BulletRaycasterOnOnShotsFired;
 	}
 
-	void Update()
+	private void OnDestroy()
 	{
-		if (!Input.GetMouseButtonDown(0)) return;
+		BulletRaycaster.OnShotsFired -= BulletRaycasterOnOnShotsFired;
+	}
 
-		if (WeaponStorage.Instance.Ammo[WeaponIndex] == 0)
+	private void BulletRaycasterOnOnShotsFired(List<Vector3> positions)
+	{
+		WeaponStorage.Instance.Ammo[Settings.Name]--;
+
+		foreach (var position in positions)
 		{
-			return;
-		}
-
-		WeaponStorage.Instance.Ammo[WeaponIndex]--;
-
-		for (var i = 0; i < Settings.BulletsToSpawn; i++)
-		{
-			var rotation = Quaternion.Euler(
-				cameraTransform.rotation.eulerAngles.x + Random.Range(-Settings.AngleSpread, Settings.AngleSpread),
-				playerTransform.rotation.eulerAngles.y + Random.Range(-Settings.AngleSpread, Settings.AngleSpread),
-				0
-			);
-
 			var bulletObject = Instantiate(
 				BulletPrefab,
-				transform.position,
-				rotation
+				transform
 			);
 
-			bulletObject.GetComponent<BulletMovement>().MaxDistBeforeDestroy = Settings.Range;
+			var bulletMovement = bulletObject.GetComponent<BulletMovement>();
+
+			bulletMovement.TargetPosition = position;
 		}
 	}
 }

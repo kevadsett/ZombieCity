@@ -9,6 +9,9 @@ public class BulletRaycaster : MonoBehaviour
 	public delegate void EnemyHit(string enemyId, Vector3 position);
 	public static event EnemyHit OnEnemyHit;
 
+	public delegate void ShotsFired(List<Vector3> positions);
+	public static event ShotsFired OnShotsFired;
+
 	private Transform cameraTransform;
 
 	private WeaponSettings weaponSettings;
@@ -30,13 +33,19 @@ public class BulletRaycaster : MonoBehaviour
 		WeaponSelector.OnWeaponChanged -= WeaponSelectorOnOnWeaponChanged;
 	}
 
-	private void WeaponSelectorOnOnWeaponChanged(Weapon newWeapon)
+	private void WeaponSelectorOnOnWeaponChanged(WeaponSettings newWeapon)
 	{
-		weaponSettings = newWeapon.Settings;
+		weaponSettings = newWeapon;
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
+		if (!Input.GetMouseButtonDown(0)) return;
+
+		if (WeaponStorage.Instance.Ammo[weaponSettings.Name] <= 0) return;
+
+		var endPositions = new List<Vector3>();
 		for (var i = 0; i < weaponSettings.BulletsToSpawn; i++)
 		{
 			var rayRotation = Quaternion.Euler(new Vector3(
@@ -44,6 +53,7 @@ public class BulletRaycaster : MonoBehaviour
 				Random.Range(-weaponSettings.AngleSpread, weaponSettings.AngleSpread),
 				0
 			));
+
 			var direction =  rayRotation * cameraTransform.forward;
 			RaycastHit hit;
 			if (Physics.Raycast(
@@ -55,40 +65,24 @@ public class BulletRaycaster : MonoBehaviour
 			{
 				Debug.DrawRay(cameraTransform.position, direction * hit.distance, Color.red);
 
-				if (!Input.GetMouseButtonDown(0)) return;
-
 				var enemy = hit.collider.gameObject;
 				if (OnEnemyHit != null)
 				{
 					OnEnemyHit(enemy.name, hit.point);
 				}
+				endPositions.Add(hit.point);
 			}
 			else
 			{
+				Debug.Break();
 				Debug.DrawRay(cameraTransform.position, direction * weaponSettings.Range, Color.yellow);
+				endPositions.Add(direction * weaponSettings.Range);
 			}
 		}
-//		RaycastHit hit;
-//		if (Physics.Raycast(
-//			cameraTransform.position, cameraTransform.forward,
-//			out hit,
-//			weaponSettings.Range,
-//			enemyLayerMask
-//		))
-//		{
-//			Debug.DrawRay(cameraTransform.position, cameraTransform.forward * hit.distance, Color.red);
-//
-//			if (!Input.GetMouseButtonDown(0)) return;
-//
-//			var enemy = hit.collider.gameObject;
-//			if (OnEnemyHit != null)
-//			{
-//				OnEnemyHit(enemy.name, hit.point);
-//			}
-//		}
-//		else
-//		{
-//			Debug.DrawRay(cameraTransform.position, cameraTransform.forward * weaponRange, Color.yellow);
-//		}
+
+		if (OnShotsFired != null)
+		{
+			OnShotsFired(endPositions);
+		}
 	}
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(WeaponStorage))]
 public class WeaponSelector : MonoBehaviour
 {
-	public delegate void WeaponChanged(Weapon newWeapon);
+	public delegate void WeaponChanged(WeaponSettings newWeapon);
 	public static event WeaponChanged OnWeaponChanged;
 
 	private int selectedWeaponIndex;
@@ -52,13 +52,12 @@ public class WeaponSelector : MonoBehaviour
 		var nextWeapon = weaponStorage.CollectedWeapons[selectedWeaponIndex];
 		Debug.Log(nextWeapon);
 		currentWeapon = Instantiate(
-			nextWeapon.Settings.WeaponPrefab,
+			nextWeapon.WeaponPrefab,
 			transform
 		);
 
 		var bulletSpawner = currentWeapon.GetComponentInChildren<BulletSpawner>();
-		bulletSpawner.WeaponIndex = selectedWeaponIndex;
-		bulletSpawner.Settings = nextWeapon.Settings;
+		bulletSpawner.Settings = nextWeapon;
 
 		if (OnWeaponChanged != null)
 		{
