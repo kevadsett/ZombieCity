@@ -5,6 +5,7 @@ public class WeaponSettings : ScriptableObject
 {
 	public GameObject WeaponPrefab;
 	public int DefaultAmmo;
+	public Texture2D CrossHairsTexture;
 
 	public override string ToString()
 	{
