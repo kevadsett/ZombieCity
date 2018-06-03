@@ -14,3 +14,5 @@ MonoBehaviour:
   WeaponPrefab: {fileID: 1394469730351190, guid: e5983337e1723452dbcc698bab5f6825,
     type: 2}
   DefaultAmmo: 6
+  CrossHairsTexture: {fileID: 2800000, guid: 38b03e7c17609452e88e8f623e31dc34, type: 3}
+  Name: 

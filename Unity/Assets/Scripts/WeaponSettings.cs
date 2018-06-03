@@ -5,10 +5,11 @@ public class WeaponSettings : ScriptableObject
 {
 	public GameObject WeaponPrefab;
 	public int DefaultAmmo;
-	public Texture2D CrossHairsTexture;
+	public Sprite CrossHairsSprite;
+	public string Name;
 
 	public override string ToString()
 	{
-		return name;
+		return Name;
 	}
 }
