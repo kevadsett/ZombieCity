@@ -31,11 +31,12 @@ public class DayNightUi : MonoBehaviour
 		if (isNight)
 		{
 			text.text = string.Format("Night {0}", day);
-
+			AudioPlayer.PlaySound("Nightfall");
 		}
 		else
 		{
 			text.text = string.Format("Day {0}", day);
+			AudioPlayer.PlaySound("Sunrise");
 		}
 	}
 }

@@ -46,6 +46,7 @@ public class BulletRaycaster : MonoBehaviour
 		if (WeaponStorage.Instance.Ammo[weaponSettings.Name] <= 0) return;
 
 		WeaponStorage.Instance.Ammo[weaponSettings.Name]--;
+		AudioPlayer.PlaySound(weaponSettings.Name);	// gun name is audio name :-)
 
 		var endPositions = new List<Vector3>();
 		for (var i = 0; i < weaponSettings.BulletsToSpawn; i++)
