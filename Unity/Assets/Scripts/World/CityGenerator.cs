@@ -102,11 +102,14 @@ public class CityGenerator : MonoBehaviour {
 	}
 
 	void SpawnZombies (Building building) {
-		float angle = Random.Range (0f, 360f);
-		Vector3 spawnPos = Quaternion.Euler (0f, angle, 0f) * new Vector3 (0f, 0f, building.clearRadius) + building.transform.position
-			+ Vector3.up * 2f; // TODO: wtf, this is weird
+		for (int i = 0; i < building.NumZombiesToSpawn; i++) {
 
-		Instantiate (zombiePrefab, spawnPos, Quaternion.Euler (0f, angle, 0f), building.transform);
+			float angle = Random.Range (0f, 360f);
+			Vector3 spawnPos = Quaternion.Euler (0f, angle, 0f) * new Vector3 (0f, 0f, building.clearRadius) + building.transform.position
+				+ Vector3.up * 2f; // TODO: wtf, this is weird
+
+			Instantiate (zombiePrefab, spawnPos, Quaternion.Euler (0f, Random.Range (0f, 360f), 0f), building.transform);
+		}
 
 		// TODO: spawn more than one (see design doc for info!)
 	}

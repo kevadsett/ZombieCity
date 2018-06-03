@@ -27,6 +27,8 @@ public class LightingControl : MonoBehaviour
 		Camera.main.backgroundColor = col;
 
 		RenderSettings.ambientLight = isNight ? settings.nightAmbient : settings.dayAmbient;
+		RenderSettings.fogColor = col;
+		RenderSettings.fogDensity = isNight ? settings.nightFog : settings.dayFog;
 
 		directionalLight.enabled = !isNight;
 	}

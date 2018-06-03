@@ -57,20 +57,25 @@ MonoBehaviour:
   - name: Centre
     uiColour: {r: 0.27205884, g: 0.5481745, b: 1, a: 1}
     radius: 36
-    numBuildings: 16
+    numBuildings: 30
     angleIncrement: 90
     buildings:
     - {fileID: 114877544460028914, guid: ea63da487d67e46e5a67f7ca8b24255a, type: 2}
+    - {fileID: 114853701348670748, guid: 5189c1ef1607c4d97ab002c081e39575, type: 2}
+    - {fileID: 114877544460028914, guid: ea63da487d67e46e5a67f7ca8b24255a, type: 2}
+    - {fileID: 114665149777075370, guid: 23edac67765fa4cd38a1585e1cd084e3, type: 2}
   - name: Suburbs
     uiColour: {r: 0.5661765, g: 0.10823962, b: 0.14945401, a: 1}
-    radius: 46
-    numBuildings: 36
+    radius: 50
+    numBuildings: 70
     angleIncrement: 90
     buildings:
     - {fileID: 114520385904000522, guid: 6a79ba5766bd24515a3971a3e45d1883, type: 2}
-    - {fileID: 114520385904000522, guid: 6a79ba5766bd24515a3971a3e45d1883, type: 2}
-    - {fileID: 114520385904000522, guid: 6a79ba5766bd24515a3971a3e45d1883, type: 2}
+    - {fileID: 114971136049949158, guid: a498117ad99464123a0f48dff75449f0, type: 2}
+    - {fileID: 114853701348670748, guid: 5189c1ef1607c4d97ab002c081e39575, type: 2}
     - {fileID: 114877544460028914, guid: ea63da487d67e46e5a67f7ca8b24255a, type: 2}
+    - {fileID: 114665149777075370, guid: 23edac67765fa4cd38a1585e1cd084e3, type: 2}
+    - {fileID: 114520385904000522, guid: 6a79ba5766bd24515a3971a3e45d1883, type: 2}
   - name: Outskirts
     uiColour: {r: 0.15730223, g: 0.627451, b: 0, a: 1}
     radius: 50
@@ -78,3 +83,6 @@ MonoBehaviour:
     angleIncrement: 45
     buildings:
     - {fileID: 114520385904000522, guid: 6a79ba5766bd24515a3971a3e45d1883, type: 2}
+    - {fileID: 114853701348670748, guid: 5189c1ef1607c4d97ab002c081e39575, type: 2}
+    - {fileID: 114971136049949158, guid: a498117ad99464123a0f48dff75449f0, type: 2}
+    - {fileID: 114665149777075370, guid: 23edac67765fa4cd38a1585e1cd084e3, type: 2}

@@ -10,6 +10,14 @@ public class PlayerLooter : MonoBehaviour {
 	public static bool showCanLootText { get; private set; }
 	public static bool showLootUI { get; private set; }
 
+	public static string titleText { get; private set; }
+	public static string infoText { get; private set; }
+
+	public static void UpdateUIText (string title, string info) {
+		titleText = title;
+		infoText = info;
+	}
+
 	void Update () {
 		if (showLootUI) {
 			HandleLootUI ();
@@ -20,6 +28,7 @@ public class PlayerLooter : MonoBehaviour {
 
 	void HandleLootUI () {
 		if (Input.GetKeyDown (lootButton)) {
+			AmmoTextUpdater.FindObjectOfType<AmmoTextUpdater> ().UpdateText ();
 			showLootUI = false;
 		}
 	}
@@ -39,19 +48,19 @@ public class PlayerLooter : MonoBehaviour {
 
 				Collider doorCollider = building.doorCollider;
 
-				if (hit.collider == doorCollider && Vector3.Distance (doorCollider.transform.position, sourcePos) < maxLootRadius) {
+				if (building.doorCollider != null) {
+					if (hit.collider == doorCollider && Vector3.Distance (doorCollider.transform.position, sourcePos) < maxLootRadius) {
 
-					if (building.hasBeenLooted) {
-						showCantLootText = true;
-					} else {
-						showCanLootText = true;
-					}
+						if (building.hasBeenLooted) {
+							showCantLootText = true;
+						} else {
+							showCanLootText = true;
+						}
 
-					if (Input.GetKeyDown (lootButton) && building.hasBeenLooted == false) {
-						Debug.LogWarning ("LOOTING SHOULD HAPPEN NOW");
-
-						showLootUI = true;
-						building.hasBeenLooted = true;
+						if (Input.GetKeyDown (lootButton) && building.hasBeenLooted == false) {
+							showLootUI = true;
+							building.LootItems ();
+						}
 					}
 				}
 			}

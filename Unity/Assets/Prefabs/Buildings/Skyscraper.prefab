@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1455280503485512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.32932, y: 0.09668431, z: -108.5253}
+  m_LocalPosition: {x: -89.740776, y: 5.0429043e-17, z: -68.13366}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4683123679148270}
@@ -148,7 +148,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 25f5f236cb191ca4b9e21af9c87e2b0b, type: 2}
-  - {fileID: 2100002, guid: 6601a3fcd407eb6408380dd158cb6b32, type: 3}
+  - {fileID: 2100000, guid: a160314337e303d40b114c5f67c965db, type: 2}
   - {fileID: 2100000, guid: be37c889167cc1345a5f791476c68ac9, type: 2}
   - {fileID: 2100000, guid: 9891b1cc3d3b41a49a03f0107c7fbd7b, type: 2}
   - {fileID: 2100000, guid: 1a68f10b8b4107f4487328399216462f, type: 2}
@@ -260,4 +260,24 @@ MonoBehaviour:
   minScale: 1.1
   maxScale: 1.2
   doorCollider: {fileID: 65009958423198640}
-  hasBeenLooted: 0
+  lootItems:
+  - type: 0
+    chanceMultiplier: 15
+    minQuantity: 0
+    maxQuantity: 0
+    numGuardZombies: 0
+  - type: 3
+    chanceMultiplier: 25
+    minQuantity: 2
+    maxQuantity: 6
+    numGuardZombies: 2
+  - type: 4
+    chanceMultiplier: 25
+    minQuantity: 1
+    maxQuantity: 4
+    numGuardZombies: 3
+  - type: 1
+    chanceMultiplier: 15
+    minQuantity: 1
+    maxQuantity: 1
+    numGuardZombies: 1

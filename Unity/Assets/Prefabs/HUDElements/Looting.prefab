@@ -372,6 +372,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableParent: {fileID: 1048722301509108}
+  titleText: {fileID: 114101691260424490}
+  infoText: {fileID: 114641247966233256}
 --- !u!114 &114812532526007292
 MonoBehaviour:
   m_ObjectHideFlags: 1

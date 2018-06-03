@@ -61,6 +61,7 @@ public class ZombieAI : MonoBehaviour
 		deathStartTime = Time.time;
 		myState = State.Dying;
 		animator.SetTrigger("die");
+		AudioPlayer.PlaySound("ZombieDie",transform.position);
 	}
 
 	// Update is called once per frame
@@ -106,7 +107,8 @@ public class ZombieAI : MonoBehaviour
 
 		if (distanceToPlayer < settings.sightDistance)
 		{
-			myState = State.Chasing;	
+			myState = State.Chasing;
+			AudioPlayer.PlaySound("ZombieChase",transform.position);
 		}
 	}
 
@@ -122,6 +124,7 @@ public class ZombieAI : MonoBehaviour
 		if (distanceToPlayer <= settings.attackRange)
 		{
 			myState = State.Attacking;
+			AudioPlayer.PlaySound("ZombieAttack",transform.position);
 		}
 	}
 
@@ -207,6 +210,7 @@ public class ZombieAI : MonoBehaviour
 		if (attackTimer >= settings.attackTime)	// reset
 		{
 			attackTimer = 0;
+			AudioPlayer.PlaySound("ZombieAttack",transform.position);
 		}
 	}
 	private void DamagePlayer()
