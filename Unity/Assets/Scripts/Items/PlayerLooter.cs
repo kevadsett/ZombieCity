@@ -28,6 +28,7 @@ public class PlayerLooter : MonoBehaviour {
 
 	void HandleLootUI () {
 		if (Input.GetKeyDown (lootButton)) {
+			AmmoTextUpdater.FindObjectOfType<AmmoTextUpdater> ().UpdateText ();
 			showLootUI = false;
 		}
 	}
