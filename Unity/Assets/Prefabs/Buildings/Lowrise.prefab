@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a73ceb798264bbfb3decdecd4a7e51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearRadius: 10
+  clearRadius: 10.5
   minScale: 1.25
   maxScale: 1.35
   doorCollider: {fileID: 65597986586822644}

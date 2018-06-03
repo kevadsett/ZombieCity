@@ -50,7 +50,7 @@ public class CityGenerator : MonoBehaviour {
 
 				bool isAbleToBuild = false;
 				Vector3 buildPos = Vector3.zero;
-				int attempts = 256;
+				int attempts = 512;
 				while (isAbleToBuild == false) {
 					float radialDist = Random.Range (startRadius, endRadius);
 					float angle = Random.Range (0f, 360f);
