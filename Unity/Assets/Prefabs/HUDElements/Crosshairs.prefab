@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 222130518786608308}
   - component: {fileID: 114599659834433188}
   - component: {fileID: 114483944117397428}
+  - component: {fileID: 114025859915809266}
   m_Layer: 5
   m_Name: PressToLoot
   m_TagString: Untagged
@@ -74,6 +75,7 @@ GameObject:
   - component: {fileID: 222926301847253756}
   - component: {fileID: 114351546211639160}
   - component: {fileID: 114516291723845670}
+  - component: {fileID: 114643953899549248}
   m_Layer: 5
   m_Name: AlreadyLooted
   m_TagString: Untagged
@@ -81,6 +83,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114025859915809266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1763781381913052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7818e955fecb841ab87faadc046c72c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showForLootAvailability: 1
+  uiTextObject: {fileID: 114599659834433188}
 --- !u!114 &114319821430110980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,6 +242,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Press E to LOOT
+--- !u!114 &114643953899549248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1985438026164040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7818e955fecb841ab87faadc046c72c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showForLootAvailability: 0
+  uiTextObject: {fileID: 114351546211639160}
 --- !u!222 &222130518786608308
 CanvasRenderer:
   m_ObjectHideFlags: 1
