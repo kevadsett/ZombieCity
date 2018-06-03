@@ -24,10 +24,8 @@ public class BulletSpawner : MonoBehaviour
 
 		foreach (var position in positions)
 		{
-			var bulletObject = Instantiate(
-				BulletPrefab,
-				transform
-			);
+			var bulletObject = Instantiate(BulletPrefab);
+			bulletObject.transform.position = transform.position;
 
 			var bulletMovement = bulletObject.GetComponent<BulletMovement>();
 
