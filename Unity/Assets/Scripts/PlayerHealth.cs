@@ -1,4 +1,4 @@
-﻿//#define DEBUG_TEST
+//#define DEBUG_TEST
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +17,13 @@ public class PlayerHealth : MonoBehaviour
 	{
 		Health = DEFAULT_HEALTH;
 		injury = GameObject.FindObjectOfType<InjuryEffect>();
+	}
+
+	public void Heal(int amount)
+	{
+		Health += amount;
+		if (Health > DEFAULT_HEALTH)
+			Health = DEFAULT_HEALTH;
 	}
 
 	public void ResetHealth()
