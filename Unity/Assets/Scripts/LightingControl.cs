@@ -24,7 +24,10 @@ public class LightingControl : MonoBehaviour
 	void OnDayChanged(int day, bool isNight)
 	{
 		var col = isNight ? settings.nightColour : settings.dayColour;
-		Camera.main.backgroundColor = col;
+		foreach (var cam in Camera.allCameras)
+		{
+			cam.backgroundColor = col;
+		}
 
 		RenderSettings.ambientLight = isNight ? settings.nightAmbient : settings.dayAmbient;
 		RenderSettings.fogColor = col;

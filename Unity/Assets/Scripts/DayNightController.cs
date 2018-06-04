@@ -38,6 +38,7 @@ public class DayNightController : MonoBehaviour
     public void Reset()
     {
         Days = 1;
+        OnDayChanged(1, false);
     }
 }
 
