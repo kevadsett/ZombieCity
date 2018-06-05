@@ -8,22 +8,18 @@ public class LightingControl : MonoBehaviour
 	private Light directionalLight;
 
 	// Use this for initialization
-	void Start ()
+	void Awake()
 	{
 		directionalLight = GetComponent<Light>();
 		DayNightController.OnDayChanged += OnDayChanged;
 		OnDayChanged(1,false);
 	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		
-	}
 
 	void OnDayChanged(int day, bool isNight)
 	{
-		var col = isNight ? settings.nightColour : settings.dayColour;
+        Debug.Log(string.Format("OnDayChanged {0} {1}", day, isNight));
+
+        var col = isNight ? settings.nightColour : settings.dayColour;
 		foreach (var cam in Camera.allCameras)
 		{
 			cam.backgroundColor = col;

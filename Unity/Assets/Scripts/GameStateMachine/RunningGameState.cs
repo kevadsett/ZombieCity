@@ -23,6 +23,9 @@ namespace GameStateMachine
             GameObject.FindObjectOfType<WeaponStorage>().ResetAmmo();
             GameObject.FindObjectOfType<WeaponSelector>().ResetWeapon();
             GameObject.FindObjectOfType<AmmoTextUpdater>().UpdateText();
+
+            // turn off the intro camera:
+            GameObject.Find("IntroCamera").GetComponent<AudioListener>().enabled = false;
 		}
 
 		private void PlayerHealthOnOnHealthLost(int newhealth)

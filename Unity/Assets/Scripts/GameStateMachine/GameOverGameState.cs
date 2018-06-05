@@ -19,7 +19,10 @@ namespace GameStateMachine
             var dayNight = GameObject.FindObjectOfType<DayNightController>();
             dayNight.ResetDay();
             dayNight.enabled = false;
-		}
+
+            // turn on the intro camera:
+            GameObject.Find("IntroCamera").GetComponent<AudioListener>().enabled=true;
+        }
 
 		public override void Update()
 		{
