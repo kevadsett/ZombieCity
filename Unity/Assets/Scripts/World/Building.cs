@@ -9,6 +9,8 @@ public class Building : MonoBehaviour {
 	public float maxScale;
 
 	public Collider doorCollider;
+	public GameObject lootableIndicator;
+	public GameObject unlootableIndicator;
 
 	public bool hasBeenLooted { get; private set; }
 
@@ -66,6 +68,8 @@ public class Building : MonoBehaviour {
 		DisplayItems ();
 
 		hasBeenLooted = true;
+		lootableIndicator.SetActive (false);
+		unlootableIndicator.SetActive (true);
 	}
 
 	void ApplyItems () {

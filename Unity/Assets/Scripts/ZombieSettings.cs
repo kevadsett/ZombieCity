@@ -7,10 +7,14 @@ public class ZombieSettings : ScriptableObject
 {
     [Header("Detection/Movement")] 
     public float sightDistance = 10;
-    public float lostDistance=30;
+	public float forceSightDistance = 2;
+    public float lostDistance=10;
+	public float nightLostDistance=20;
     public float chaseSpeed=2,turnSpeed=30;
     public float nightSightDistance = 15;
     public float nightSpeed = 3;
+	public float hearingDistance = 25;
+	public float hearingAlertnessDuration = 1;
 
     [Header("Attack")]
     [Tooltip("range at which the zombie attacks")]

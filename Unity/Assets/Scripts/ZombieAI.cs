@@ -10,6 +10,7 @@ using UnityEngine;
 public class ZombieAI : MonoBehaviour
 {
 	[SerializeField] private ZombieSettings settings;
+	[SerializeField] GameObject alertIndicator;
 
 	private enum State
 	{
@@ -32,6 +33,8 @@ public class ZombieAI : MonoBehaviour
 	private float deathStartTime;
 	private bool isNight;
 
+	private float gunshotAttractionTimer;
+
 	private static int Id;
 	
 	// Use this for initialization
@@ -48,6 +51,15 @@ public class ZombieAI : MonoBehaviour
 		Id++;
 		animator.SetBool("isChasing",false);
 		animator.SetBool("isAttacking",false);
+
+		BulletRaycaster.OnShotsFired += OnHeardShots;
+	}
+
+	void OnHeardShots(List<Vector3> positions, Vector3 startPosition)
+	{
+		if (Vector3.Distance (startPosition, transform.position) < settings.hearingDistance) {
+			gunshotAttractionTimer = settings.hearingAlertnessDuration;
+		}
 	}
 
 	private void OnDestroy()
@@ -64,6 +76,8 @@ public class ZombieAI : MonoBehaviour
 		myState = State.Dying;
 		animator.SetTrigger("die");
 		AudioPlayer.PlaySound("ZombieDie",transform.position);
+
+		BulletRaycaster.OnShotsFired -= OnHeardShots;
 	}
 
 	// Update is called once per frame
@@ -77,11 +91,19 @@ public class ZombieAI : MonoBehaviour
 			if (playerObject == null) return;
 			player = playerObject.transform;
 		}
-		var distanceToPlayer = Vector3.Distance(player.position, transform.position);
+
+		Vector3 vecToPlayer = player.position - transform.position;
+
+		float distanceToPlayer = vecToPlayer.magnitude;
+		bool facingPlayer = Vector3.Dot (vecToPlayer.normalized, transform.forward) > 0f;
+		bool canSeePlayer = facingPlayer || distanceToPlayer < settings.forceSightDistance;
+
+		gunshotAttractionTimer -= Time.deltaTime;
+
 		switch (myState)
 		{
 			case State.Roaming:
-				UpdateRoaming(distanceToPlayer);
+				UpdateRoaming(distanceToPlayer, canSeePlayer);
 				animator.SetBool("isChasing",false);
 				animator.SetBool("isAttacking",false);
 				break;
@@ -101,15 +123,18 @@ public class ZombieAI : MonoBehaviour
 			default:
 				throw new ArgumentOutOfRangeException("State " + myState + " not recognised.");
 		}
+
+		alertIndicator.SetActive (myState == State.Chasing || myState == State.Attacking);
 	}
 
-	private void UpdateRoaming(float distanceToPlayer)
+	private void UpdateRoaming(float distanceToPlayer, bool facingPlayer)
 	{
 		control.SimpleMove(Vector3.zero);	// move nothing: it will drop them
 
 		var sightDist = isNight ? settings.nightSightDistance : settings.sightDistance;
-		
-		if (distanceToPlayer < sightDist)
+
+		// if we can see the player OR we heard a shot and haven't forgotten about it yet...
+		if ((distanceToPlayer < sightDist && facingPlayer) || gunshotAttractionTimer > 0f)
 		{
 			myState = State.Chasing;
 			AudioPlayer.PlaySound("ZombieChase",transform.position);
@@ -120,7 +145,10 @@ public class ZombieAI : MonoBehaviour
 	{
 		ChasePlayer();
 
-		if (distanceToPlayer > settings.lostDistance)
+		float lostDistance = isNight ? settings.nightLostDistance : settings.lostDistance;
+
+		// if we've lost the player AND we haven't forgotten about their gunshots
+		if (distanceToPlayer > lostDistance && gunshotAttractionTimer <= 0f)
 		{
 			myState = State.Roaming;
 		}
