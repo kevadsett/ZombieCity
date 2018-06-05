@@ -7,7 +7,6 @@ namespace GameStateMachine
 		private StateMachine stateMachine;
 
 		private GameObject player;
-		private LightingControl lightingControl;
 
 		public RunningGameState(StateMachine stateMachine, GameObject screen, GameObject player) : base (screen)
 		{
@@ -15,12 +14,15 @@ namespace GameStateMachine
 			this.player = player;
 			PlayerHealth.OnHealthLost += PlayerHealthOnOnHealthLost;
 			player.SetActive(true);
-			player.GetComponentInChildren<PlayerHealth>().ResetHealth();
+            player.GetComponentInChildren<PlayerHealth>().ResetHealth();
 
-			var controlLight = GameObject.Find("ControllableLight");
-			lightingControl = controlLight.GetComponent<LightingControl>();
-			lightingControl.enabled = true;
-			controlLight.GetComponent<DayNightController>().Reset();
+            var dayNight = GameObject.FindObjectOfType<DayNightController>();
+            dayNight.enabled = true;
+			dayNight.ResetDay();
+
+            GameObject.FindObjectOfType<WeaponStorage>().ResetAmmo();
+            GameObject.FindObjectOfType<WeaponSelector>().ResetWeapon();
+            GameObject.FindObjectOfType<AmmoTextUpdater>().UpdateText();
 		}
 
 		private void PlayerHealthOnOnHealthLost(int newhealth)
@@ -37,7 +39,6 @@ namespace GameStateMachine
 			base.Destroy();
 			PlayerHealth.OnHealthLost -= PlayerHealthOnOnHealthLost;
 			player.SetActive(false);
-			lightingControl.enabled = false;
 		}
 	}
 }

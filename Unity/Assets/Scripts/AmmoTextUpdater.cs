@@ -10,7 +10,7 @@ public class AmmoTextUpdater : MonoBehaviour
 	private Text text;
 
 	// Use this for initialization
-	void Start()
+	void Awake()
 	{
 		text = GetComponent<Text>();
 		WeaponSelector.OnWeaponChanged += WeaponSelectorOnOnWeaponChanged;

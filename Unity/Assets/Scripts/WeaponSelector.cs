@@ -14,10 +14,10 @@ public class WeaponSelector : MonoBehaviour
 
 	private GameObject currentWeapon;
 
-	void Start ()
+	void Awake ()
 	{
 		weaponStorage = GetComponent<WeaponStorage>();
-		ChangeWeapon();
+		ResetWeapon();
 	}
 
 	void Update ()
@@ -42,14 +42,21 @@ public class WeaponSelector : MonoBehaviour
 		}
 	}
 
+    public void ResetWeapon()
+    {
+        selectedWeaponIndex = 0;
+        ChangeWeapon();
+    }
+
 	private void ChangeWeapon()
 	{
 		if (currentWeapon != null)
 		{
 			Destroy(currentWeapon);
 		}
+        Debug.Log("ChangeWeapon "+selectedWeaponIndex+" "+weaponStorage);
 
-		var nextWeapon = weaponStorage.CollectedWeapons[selectedWeaponIndex];
+        var nextWeapon = weaponStorage.CollectedWeapons[selectedWeaponIndex];
 		Debug.Log(nextWeapon);
 		currentWeapon = Instantiate(
 			nextWeapon.WeaponPrefab,

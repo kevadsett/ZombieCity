@@ -15,9 +15,10 @@ namespace GameStateMachine
 			startTime = Time.time;
 			this.stateMachine = stateMachine;
 			ShowScreen(true);
-			var controlLight = GameObject.Find("ControllableLight");
-			controlLight.GetComponent<LightingControl>().enabled = true;
-			controlLight.GetComponent<DayNightController>().Reset();
+            // turn off the day/night, this stops the day continuing
+            var dayNight = GameObject.FindObjectOfType<DayNightController>();
+            dayNight.ResetDay();
+            dayNight.enabled = false;
 		}
 
 		public override void Update()

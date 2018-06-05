@@ -18,4 +18,13 @@ public class WeaponStorage : MonoBehaviour
 	{
 		Instance = this;
 	}
+
+    public void ResetAmmo()
+    {
+        Ammo.Clear();
+        foreach(var wep in CollectedWeapons)
+        {
+            Ammo[wep.Name] = wep.DefaultAmmo;
+        }
+    }
 }
