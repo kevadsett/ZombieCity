@@ -11,7 +11,7 @@ public class InjuryEffect : MonoBehaviour
 	private float leftTimer, rightTimer;
 
 	// Use this for initialization
-	void Start ()
+	void Awake()
 	{
 		images = GetComponentsInChildren<Image>();
 		var col=new Color(1,1,1,0);
@@ -49,5 +49,12 @@ public class InjuryEffect : MonoBehaviour
 		{
 			rightTimer = settings.vignetteTime;
 		}
+	}
+
+	public void Clear()
+	{
+		leftTimer = rightTimer = 0;
+		var col = new Color(1,1,1,0);
+		images[0].color = images[1].color = col;
 	}
 }

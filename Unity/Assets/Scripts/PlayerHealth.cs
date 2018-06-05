@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
 
 	public int Health { get; private set; }
 	// Use this for initialization
-	void Start ()
+	private void Awake()
 	{
 		Health = DEFAULT_HEALTH;
 		injury = GameObject.FindObjectOfType<InjuryEffect>();
@@ -29,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
 	public void ResetHealth()
 	{
 		Health = DEFAULT_HEALTH;
+		injury.Clear();
 	}
 
 	public void Damage(Vector3 fromPos)
