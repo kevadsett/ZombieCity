@@ -18,7 +18,7 @@ public class BulletSpawner : MonoBehaviour
 		BulletRaycaster.OnShotsFired -= BulletRaycasterOnOnShotsFired;
 	}
 
-	private void BulletRaycasterOnOnShotsFired(List<Vector3> positions)
+	private void BulletRaycasterOnOnShotsFired(List<Vector3> positions, Vector3 startPosition)
 	{
 		foreach (var position in positions)
 		{

@@ -9,7 +9,7 @@ public class BulletRaycaster : MonoBehaviour
 	public delegate void EnemyHit(string enemyId, Vector3 position);
 	public static event EnemyHit OnEnemyHit;
 
-	public delegate void ShotsFired(List<Vector3> positions);
+	public delegate void ShotsFired(List<Vector3> positions, Vector3 startPosition);
 	public static event ShotsFired OnShotsFired;
 
 	private Transform cameraTransform;
@@ -84,7 +84,7 @@ public class BulletRaycaster : MonoBehaviour
 
 		if (OnShotsFired != null)
 		{
-			OnShotsFired(endPositions);
+			OnShotsFired(endPositions, cameraTransform.position);
 		}
 	}
 }

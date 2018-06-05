@@ -13,11 +13,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sightDistance: 8
   forceSightDistance: 2.5
-  lostDistance: 12
-  chaseSpeed: 1.5
-  turnSpeed: 120
-  nightSightDistance: 12
-  nightSpeed: 5
+  lostDistance: 10
+  nightLostDistance: 20
+  chaseSpeed: 2
+  turnSpeed: 200
+  nightSightDistance: 15
+  nightSpeed: 4
+  hearingDistance: 25
+  hearingAlertnessDuration: 0.5
   attackRange: 2
   attackTime: 1.333
   attackDamageAt: 0.5
