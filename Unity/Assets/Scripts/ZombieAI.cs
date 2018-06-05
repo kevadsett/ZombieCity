@@ -10,6 +10,7 @@ using UnityEngine;
 public class ZombieAI : MonoBehaviour
 {
 	[SerializeField] private ZombieSettings settings;
+	[SerializeField] GameObject alertIndicator;
 
 	private enum State
 	{
@@ -77,11 +78,17 @@ public class ZombieAI : MonoBehaviour
 			if (playerObject == null) return;
 			player = playerObject.transform;
 		}
-		var distanceToPlayer = Vector3.Distance(player.position, transform.position);
+
+		Vector3 vecToPlayer = player.position - transform.position;
+
+		float distanceToPlayer = vecToPlayer.magnitude;
+		bool facingPlayer = Vector3.Dot (vecToPlayer.normalized, transform.forward) > 0f;
+		bool canSeePlayer = facingPlayer || distanceToPlayer < settings.forceSightDistance;
+
 		switch (myState)
 		{
 			case State.Roaming:
-				UpdateRoaming(distanceToPlayer);
+				UpdateRoaming(distanceToPlayer, canSeePlayer);
 				animator.SetBool("isChasing",false);
 				animator.SetBool("isAttacking",false);
 				break;
@@ -101,15 +108,17 @@ public class ZombieAI : MonoBehaviour
 			default:
 				throw new ArgumentOutOfRangeException("State " + myState + " not recognised.");
 		}
+
+		alertIndicator.SetActive (myState == State.Chasing || myState == State.Attacking);
 	}
 
-	private void UpdateRoaming(float distanceToPlayer)
+	private void UpdateRoaming(float distanceToPlayer, bool facingPlayer)
 	{
 		control.SimpleMove(Vector3.zero);	// move nothing: it will drop them
 
 		var sightDist = isNight ? settings.nightSightDistance : settings.sightDistance;
 		
-		if (distanceToPlayer < sightDist)
+		if (distanceToPlayer < sightDist && facingPlayer)
 		{
 			myState = State.Chasing;
 			AudioPlayer.PlaySound("ZombieChase",transform.position);
