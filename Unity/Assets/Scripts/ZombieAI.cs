@@ -65,6 +65,7 @@ public class ZombieAI : MonoBehaviour
 	private void OnDestroy()
 	{
 		BulletRaycaster.OnEnemyHit -= BulletRaycasterOnOnEnemyHit;
+		BulletRaycaster.OnShotsFired -= OnHeardShots;
 	}
 
 	private void BulletRaycasterOnOnEnemyHit(string enemyid, Vector3 position)
@@ -76,8 +77,6 @@ public class ZombieAI : MonoBehaviour
 		myState = State.Dying;
 		animator.SetTrigger("die");
 		AudioPlayer.PlaySound("ZombieDie",transform.position);
-
-		BulletRaycaster.OnShotsFired -= OnHeardShots;
 	}
 
 	// Update is called once per frame

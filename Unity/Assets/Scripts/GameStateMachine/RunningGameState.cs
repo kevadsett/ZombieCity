@@ -8,6 +8,8 @@ namespace GameStateMachine
 
 		private GameObject player;
 
+		private static bool firstTimeCompleted;
+
 		public RunningGameState(StateMachine stateMachine, GameObject screen, GameObject player) : base (screen)
 		{
 			this.stateMachine = stateMachine;
@@ -20,9 +22,13 @@ namespace GameStateMachine
             dayNight.enabled = true;
 			dayNight.ResetDay();
 
-            GameObject.FindObjectOfType<WeaponStorage>().ResetAmmo();
-            GameObject.FindObjectOfType<WeaponSelector>().ResetWeapon();
-            GameObject.FindObjectOfType<AmmoTextUpdater>().UpdateText();
+			if (firstTimeCompleted) {
+	            GameObject.FindObjectOfType<WeaponStorage>().ResetAmmo();
+	            GameObject.FindObjectOfType<WeaponSelector>().ResetWeapon();
+	            GameObject.FindObjectOfType<AmmoTextUpdater>().UpdateText();
+			} else {
+				firstTimeCompleted = true;
+			}
 
             // turn off the intro camera:
             GameObject.Find("IntroCamera").GetComponent<AudioListener>().enabled = false;
