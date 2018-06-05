@@ -14,7 +14,7 @@ public class WeaponSelector : MonoBehaviour
 
 	private GameObject currentWeapon;
 
-	void Awake ()
+	void Start ()
 	{
 		weaponStorage = GetComponent<WeaponStorage>();
 		ResetWeapon();
