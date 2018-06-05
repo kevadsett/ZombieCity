@@ -19,13 +19,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224609777120306580}
+  - component: {fileID: 114660376256529394}
   m_Layer: 5
   m_Name: GameOverScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1969354322515842
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,6 +59,42 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 4, y: 4}
   m_UseGraphicAlpha: 1
+--- !u!114 &114660376256529394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1440997864949862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3d6df85e519b4299a59192b1008dfdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationRate: 3
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 5.874999
+      outSlope: 5.874999
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.21605761
+      value: 0.98277265
+      inSlope: 0.1591444
+      outSlope: 0.1591444
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.9916667
+      value: 0.00000011920929
+      inSlope: 0.050130807
+      outSlope: 0.050130807
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114800723053186126
 MonoBehaviour:
   m_ObjectHideFlags: 1
